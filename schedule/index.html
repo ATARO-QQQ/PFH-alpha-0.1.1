@@ -83,9 +83,12 @@
             opacity: 0.6;
         }
 
-        /* ヘッダー制御 */
+        /* Header Transition */
         #main-header {
             transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+        }
+        #main-header.hidden-header {
+            transform: translateY(-100%);
         }
         #main-header.scrolled {
             background-color: rgba(255, 255, 255, 0.95);
