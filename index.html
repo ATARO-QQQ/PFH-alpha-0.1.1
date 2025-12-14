@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -217,7 +217,7 @@
                 <a href="#about" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">ABOUT</a>
                 <a href="#schedule" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">SCHEDULE</a>
                 <a href="#map" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">MAP</a>
-                <a href="#atractions" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">ATTRACTIONS</a>
+                <a href="#attractions" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">ATTRACTIONS</a>
             </nav>
         </div>
     </header>
@@ -306,10 +306,13 @@
                                  class="w-full h-auto shadow-2xl rounded-tr-[4rem] rounded-bl-[4rem] relative z-10 grayscale hover:grayscale-0 transition-all duration-700">
                         </div>
                     </div>
+                    
+                    <!-- 修正箇所: ここから右カラム -->
                     <div class="w-full md:w-1/2 reveal-up" style="transition-delay: 0.2s;">
                         <span class="text-brand-blue font-bold tracking-widest text-sm block mb-2 flex items-center gap-2">
                             <span class="w-8 h-[1px] bg-brand-blue"></span> CONCEPT
                         </span>
+
                         <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight">
                             夢を共有して<br>輝かせる場を。
                         </h2>
@@ -322,6 +325,7 @@
                             この場所から、新たな発見や革新が、きっと生まれます。
                         </p>
                         
+                        <!-- 統計情報 -->
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-white p-4 border-l-4 border-brand-green shadow-sm hover:shadow-md transition-shadow">
                                 <h3 class="font-bold text-lg mb-1 text-brand-green">PRESENTERS</h3>
@@ -338,14 +342,16 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- 修正箇所: ボタンをこのdiv(右カラム)内に移動し、マージンを追加 -->
+                        <div class="reveal-up mt-8" style="transition-delay: 0.3s;">
+                            <a href="#about" class="inline-block px-8 py-3 bg-gray-900 text-white font-bold rounded-none hover:bg-brand-blue transition-colors duration-300 transform hover:skew-x-[-10deg] shadow-lg hover:shadow-xl">
+                                <span class="inline-block transform hover:skew-x-[10deg]">コンセプトの詳細へ</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </p>
-                <div class="reveal-up" style="transition-delay: 0.3s;">
-                    <a href="#about" class="inline-block px-8 py-3 bg-gray-900 text-white font-bold rounded-none hover:bg-brand-blue transition-colors duration-300 transform hover:skew-x-[-10deg] shadow-lg hover:shadow-xl">
-                        <span class="inline-block transform hover:skew-x-[10deg]">コンセプトの詳細へ</span>
-                    </a>
-                </div>
+            </div>
         </section>
 
         <!-- Main Links / Highlights -->
