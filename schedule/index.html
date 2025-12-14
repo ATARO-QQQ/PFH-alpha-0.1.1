@@ -67,27 +67,15 @@
  -webkit-text-size-adjust: 100%;  
  }  
   
- /* 背景パターン (幾何学模様・カラフル・適度なアクセント) */  
- .bg-geo-pattern {  
-   position: fixed;  
-   top: 0; left: 0; right: 0; bottom: 0;  
-   z-index: -3;  
-   background-color: #ffffff;  
-   /* カラフルで主張しない幾何学模様を作成 */  
-   background-image:  
-     /* 淡い光のアクセント */  
-     radial-gradient(circle at 15% 50%, rgba(255, 200, 200, 0.15), transparent 40%),  
-     radial-gradient(circle at 85% 30%, rgba(200, 230, 255, 0.15), transparent 40%),  
-     /* 幾何学的なチェック・ストライプ模様（非常に薄く） */  
-     linear-gradient(45deg, rgba(255, 165, 0, 0.04) 25%, transparent 25%, transparent 75%, rgba(0, 155, 119, 0.04) 75%, rgba(0, 155, 119, 0.04)),  
-     linear-gradient(45deg, rgba(0, 155, 119, 0.04) 25%, transparent 25%, transparent 75%, rgba(255, 165, 0, 0.04) 75%, rgba(255, 165, 0, 0.04)),  
-     linear-gradient(135deg, rgba(0, 87, 183, 0.03) 25%, transparent 25%, transparent 75%, rgba(221, 46, 68, 0.03) 75%, rgba(221, 46, 68, 0.03)),  
-     linear-gradient(135deg, rgba(221, 46, 68, 0.03) 25%, transparent 25%, transparent 75%, rgba(0, 87, 183, 0.03) 75%, rgba(0, 87, 183, 0.03));  
-   background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px, 60px 60px, 60px 60px;  
-   background-position: 0 0, 0 0, 0 0, 30px 30px, 0 0, 30px 30px;  
-   opacity: 1;  
+ /* 背景パターン */  
+ .bg-dot-grid {  
+ background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);  
+ background-size: 24px 24px;  
+ position: absolute;  
+ top: 0; left: 0; right: 0; bottom: 0;  
+ z-index: -3;  
+ opacity: 0.6;  
  }  
-  
  .geo-deco {  
  position: absolute;  
  z-index: -1;  
@@ -113,7 +101,7 @@
  display: grid;  
  grid-template-columns: 80px repeat(5, minmax(160px, 1fr)); /* 時間軸 + 5つの場所 */  
  gap: 1px;  
- background-color: rgba(229, 231, 235, 0.6); /* グリッド線用 (少し透過) */  
+ background-color: #e5e7eb; /* グリッド線用 */  
  border: 1px solid #e5e7eb;  
  }  
  .schedule-header {  
@@ -129,7 +117,7 @@
  z-index: 10;  
  }  
  .time-col {  
- background-color: rgba(255, 255, 255, 0.95);  
+ background-color: #fff;  
  padding: 0.5rem;  
  text-align: center;  
  font-size: 0.875rem;  
@@ -140,7 +128,7 @@
  font-weight: bold;  
  }  
  .event-cell {  
- background-color: rgba(255, 255, 255, 0.95);  
+ background-color: #fff;  
  padding: 0.75rem;  
  min-height: 100px;  
  transition: background-color 0.2s;  
@@ -193,8 +181,18 @@
 <body class="text-gray-800 antialiased relative selection:bg-brand-blue selection:text-white flex flex-col min-h-screen">  
   
  <!-- Global Backgrounds -->  
- <div class="bg-geo-pattern"></div>  
+ <div class="bg-dot-grid"></div>  
  <!-- 装飾的な背景図形 -->  
+ <!-- 右上の三角形アクセント -->  
+ <div class="fixed top-0 right-0 w-[40vw] h-[40vw] bg-blue-50/50 -z-20 transform translate-x-1/4 -translate-y-1/4" style="clip-path: polygon(100% 0, 0 0, 100% 100%);"></div>  
+ <!-- 左下の円形枠線アクセント -->  
+ <div class="fixed bottom-0 left-0 w-[30vw] h-[30vw] border-[30px] border-yellow-50/50 rounded-full -z-20 transform -translate-x-1/4 translate-y-1/4"></div>  
+ <!-- 散りばめられた幾何学図形 -->  
+ <div class="fixed top-1/4 left-[5%] w-16 h-16 border-4 border-brand-red/10 rotate-12 -z-20 hidden md:block"></div>  
+ <div class="fixed top-1/3 right-[10%] w-24 h-24 bg-brand-green/5 rounded-full -z-20 hidden md:block"></div>  
+ <div class="fixed bottom-1/4 left-[15%] w-0 h-0 border-l-[30px] border-l-transparent border-r-[30px] border-r-transparent border-b-[50px] border-b-brand-blue/10 rotate-[-15deg] -z-20 hidden md:block"></div>  
+   
+ <!-- 既存のグラデーション背景 -->  
  <div class="fixed top-[-10vw] right-[-10vw] w-[50vw] h-[50vw] rounded-full bg-gradient-to-b from-brand-blue/5 to-transparent -z-10 animate-float-slow"></div>  
  <div class="fixed bottom-[10vh] left-[-10vw] w-[40vw] h-[40vw] rounded-full bg-gradient-to-t from-brand-yellow/5 to-transparent -z-10 animate-float-medium"></div>  
   
@@ -516,111 +514,133 @@
  <h4 class="font-bold mb-4 border-l-4 border-brand-blue pl-3">PAGES</h4>  
  <ul class="space-y-2 text-sm text-gray-600">  
  <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="hover:text-brand-blue transition-colors">トップページ</a></li>  
- <li><a href="index.html#about" class="hover:text-brand-blue transition-colors">ABOUT</a></li>  
+ <li><a href="index.html#about" class="hover:text-brand-blue transition-colors">お知らせ</a></li>  
+ <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/concept/" class="hover:text-brand-blue transition-colors">コンセプト</a></li>  
  </ul>  
- </div>
- </div>
- <div class="text-center text-xs text-gray-400">
-   &copy; 2026 Yokohama-SOEI Project Festa. All Rights Reserved.
- </div>
- </div>
- </footer>
- <script>
-    // Day Switching Logic
-    const btnDay1 = document.getElementById('btn-day1');
-    const btnDay2 = document.getElementById('btn-day2');
-    const scheduleDay1 = document.getElementById('schedule-day1');
-    const scheduleDay2 = document.getElementById('schedule-day2');
-
-    btnDay1.addEventListener('click', () => {
-        // Toggle Buttons
-        btnDay1.classList.remove('text-gray-500', 'hover:text-gray-700');
-        btnDay1.classList.add('bg-white', 'text-brand-blue', 'ring-2', 'ring-brand-blue/20', 'shadow-sm');
-        
-        btnDay2.classList.remove('bg-white', 'text-brand-blue', 'ring-2', 'ring-brand-blue/20', 'shadow-sm');
-        btnDay2.classList.add('text-gray-500', 'hover:text-gray-700');
-
-        // Toggle Content
-        scheduleDay1.classList.remove('hidden');
-        scheduleDay2.classList.add('hidden');
-        
-        // Re-trigger animation
-        setTimeout(() => {
-            scheduleDay1.querySelectorAll('.reveal-up').forEach(el => el.classList.add('active'));
-        }, 10);
-    });
-
-    btnDay2.addEventListener('click', () => {
-        // Toggle Buttons
-        btnDay2.classList.remove('text-gray-500', 'hover:text-gray-700');
-        btnDay2.classList.add('bg-white', 'text-brand-blue', 'ring-2', 'ring-brand-blue/20', 'shadow-sm');
-        
-        btnDay1.classList.remove('bg-white', 'text-brand-blue', 'ring-2', 'ring-brand-blue/20', 'shadow-sm');
-        btnDay1.classList.add('text-gray-500', 'hover:text-gray-700');
-
-        // Toggle Content
-        scheduleDay2.classList.remove('hidden');
-        scheduleDay1.classList.add('hidden');
-        
-        // Re-trigger animation
-        setTimeout(() => {
-            scheduleDay2.querySelectorAll('.reveal-up').forEach(el => el.classList.add('active'));
-        }, 10);
-    });
-
-    // Mobile Menu
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        const icon = menuBtn.querySelector('i');
-        if (mobileMenu.classList.contains('open')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-xmark');
-        } else {
-            icon.classList.remove('fa-xmark');
-            icon.classList.add('fa-bars');
-        }
-    });
-
-    // Scroll Header & Reveal Animation
-    const header = document.getElementById('main-header');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        // Header Style
-        if (currentScroll > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        // Header Hide/Show
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            header.classList.add('hidden-header');
-        } else {
-            header.classList.remove('hidden-header');
-        }
-        lastScroll = currentScroll;
-
-        // Reveal Elements
-        const reveals = document.querySelectorAll('.reveal-up');
-        reveals.forEach(reveal => {
-            const windowHeight = window.innerHeight;
-            const elementTop = reveal.getBoundingClientRect().top;
-            const elementVisible = 100;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveal.classList.add('active');
-            }
-        });
-    });
-
-    // Initial check for visible elements
-    window.dispatchEvent(new Event('scroll'));
- </script>
+ </div>  
+   
+<div>  
+ <h4 class="font-bold mb-4 border-l-4 border-brand-red pl-3">EVENT</h4>  
+ <ul class="space-y-2 text-sm text-gray-600">  
+ <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/schedule/" class="hover:text-brand-blue transition-colors">スケジュール</a></li>  
+ <li><a href="index.html#attractions" class="hover:text-brand-blue transition-colors">会場マップ</a></li>  
+ <li><a href="#" class="hover:text-brand-blue transition-colors">実行委員会より</a></li>  
+ </ul>  
+ </div>  
+  
+ <div>  
+ <h4 class="font-bold mb-4 border-l-4 border-brand-yellow pl-3">SUPPORT</h4>  
+ <ul class="space-y-2 text-sm text-gray-600">  
+ <li><a href="#" class="hover:text-brand-blue transition-colors">よくある質問</a></li>  
+ <li><a href="#" class="hover:text-brand-blue transition-colors">プライバシーポリシー</a></li>  
+ <li><a href="#" class="hover:text-brand-blue transition-colors">サイトマップ</a></li>  
+ </ul>  
+ </div>  
+ </div>  
+   
+<div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">  
+ <p>&copy; 2026 Yokohama Soei High School Project Festa Executive Committee.</p>  
+ <div class="flex space-x-4 mt-4 md:mt-0">  
+ <a href="#" class="hover:text-brand-blue"><i class="fa-brands fa-twitter"></i></a>  
+ <a href="#" class="hover:text-brand-blue"><i class="fa-brands fa-instagram"></i></a>  
+ <a href="#" class="hover:text-brand-blue"><i class="fa-brands fa-youtube"></i></a>  
+ </div>  
+ </div>  
+ </div>  
+ </footer>  
+  
+ <script>  
+ // Day Toggle Logic  
+ const btnDay1 = document.getElementById('btn-day1');  
+ const btnDay2 = document.getElementById('btn-day2');  
+ const scheduleDay1 = document.getElementById('schedule-day1');  
+ const scheduleDay2 = document.getElementById('schedule-day2');  
+  
+ function switchToDay1() {  
+ btnDay1.classList.remove('text-gray-500', 'hover:text-gray-700');  
+ btnDay1.classList.add('bg-white', 'text-brand-blue', 'shadow-sm', 'ring-2', 'ring-brand-blue/20');  
+   
+btnDay2.classList.add('text-gray-500', 'hover:text-gray-700');  
+ btnDay2.classList.remove('bg-white', 'text-brand-blue', 'shadow-sm', 'ring-2', 'ring-brand-blue/20');  
+   
+scheduleDay1.classList.remove('hidden');  
+ scheduleDay2.classList.add('hidden');  
+ }  
+  
+ function switchToDay2() {  
+ btnDay2.classList.remove('text-gray-500', 'hover:text-gray-700');  
+ btnDay2.classList.add('bg-white', 'text-brand-blue', 'shadow-sm', 'ring-2', 'ring-brand-blue/20');  
+   
+btnDay1.classList.add('text-gray-500', 'hover:text-gray-700');  
+ btnDay1.classList.remove('bg-white', 'text-brand-blue', 'shadow-sm', 'ring-2', 'ring-brand-blue/20');  
+   
+scheduleDay2.classList.remove('hidden');  
+ scheduleDay1.classList.add('hidden');  
+ }  
+  
+ btnDay1.addEventListener('click', switchToDay1);  
+ btnDay2.addEventListener('click', switchToDay2);  
+  
+ // Mobile Menu Toggle  
+ const menuBtn = document.getElementById('menu-btn');  
+ const mobileMenu = document.getElementById('mobile-menu');  
+   
+menuBtn.addEventListener('click', () => {  
+ mobileMenu.classList.toggle('open');  
+ const icon = menuBtn.querySelector('i');  
+ if (mobileMenu.classList.contains('open')) {  
+ icon.classList.remove('fa-bars');  
+ icon.classList.add('fa-xmark');  
+ } else {  
+ icon.classList.remove('fa-xmark');  
+ icon.classList.add('fa-bars');  
+ }  
+ });  
+  
+ // Reveal Animation on Scroll  
+ const observerOptions = {  
+ root: null,  
+ rootMargin: '0px',  
+ threshold: 0.1  
+ };  
+   
+const observer = new IntersectionObserver((entries, observer) => {  
+ entries.forEach(entry => {  
+ if (entry.isIntersecting) {  
+ entry.target.classList.add('active');  
+ observer.unobserve(entry.target);  
+ }  
+ });  
+ }, observerOptions);  
+   
+document.querySelectorAll('.reveal-up').forEach(el => {  
+ observer.observe(el);  
+ });  
+  
+ // Smart Header Logic (Added as requested)  
+ let lastScrollY = window.scrollY;  
+ const header = document.getElementById('main-header');  
+   
+window.addEventListener('scroll', () => {  
+ const currentScrollY = window.scrollY;  
+  
+ if (currentScrollY > lastScrollY && currentScrollY > 100) {  
+ // Scroll Down -> Hide  
+ header.classList.add('hidden-header');  
+ } else {  
+ // Scroll Up -> Show  
+ header.classList.remove('hidden-header');  
+ }  
+  
+ // Optional: Add 'scrolled' style when not at top  
+ if (currentScrollY > 0) {  
+ header.classList.add('scrolled');  
+ } else {  
+ header.classList.remove('scrolled');  
+ }  
+  
+ lastScrollY = currentScrollY;  
+ });  
+ </script>  
 </body>  
 </html>
