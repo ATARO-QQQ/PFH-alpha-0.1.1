@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="ja" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,6 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Project Festa 2026（プロジェクトフェスタ2026）の公式ホームページです。未来を創る祭典のスケジュール、会場マップ、見どころなどの最新情報をお届けします。">
-    <!-- 修正: 閉じタグとクォーテーションのミスを修正 -->
     <meta name="keywords" content="Project Festa 2026, プロジェクトフェスタ, 2026, 高等学校, 横浜">
     <meta name="robots" content="index, follow">
     
@@ -46,6 +45,18 @@
                             green: '#009B77',
                             red: '#DD2E44',
                         }
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-medium': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
@@ -64,40 +75,42 @@
             -webkit-text-size-adjust: 100%; /* iOSでのフォントサイズ自動調整を防止 */
         }
 
-        /* Geometric Background Shapes */
-        .geo-shape {
-            position: absolute;
-            z-index: -1;
-            opacity: 0.15;
-            pointer-events: none;
-            /* はみ出し対策のため、念の為max-widthを設定 */
-            max-width: 100vw;
-        }
-        .shape-1 {
-            width: 40vw;
-            height: 40vw;
-            background: linear-gradient(135deg, #0057B7, #009B77);
-            clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
-            top: -10vw;
-            right: -5vw;
-            transform: rotate(-10deg);
-        }
-        .shape-2 {
-            width: 30vw;
-            height: 30vw;
-            background: linear-gradient(45deg, #DD2E44, #FFD700);
-            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-            bottom: 10vh;
-            left: -10vw;
-            transform: rotate(15deg);
-        }
-        .stripe-pattern {
-            background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 2px, transparent 2px, transparent 12px);
+        /* --- New Geometric Background Patterns --- */
+        
+        /* 1. Dot Grid (Design Blueprint Style) */
+        .bg-dot-grid {
+            background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            z-index: -2;
-            width: 100%;
-            height: 100%;
+            z-index: -3;
+            opacity: 0.6;
+        }
+
+        /* 2. Abstract Shapes styling */
+        .geo-deco {
+            position: absolute;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        /* Existing Large Gradients (Adjusted) */
+        .shape-1 {
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(0,87,183,0.08) 0%, rgba(0,155,119,0) 70%);
+            top: -10vw;
+            right: -10vw;
+            border-radius: 50%;
+        }
+        .shape-2 {
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(221,46,68,0.08) 0%, rgba(255,215,0,0) 70%);
+            bottom: 5vh;
+            left: -10vw;
+            border-radius: 50%;
         }
 
         /* Header Transition */
@@ -142,7 +155,7 @@
         .marquee-container {
             overflow: hidden;
             white-space: nowrap;
-            width: 100%; /* 幅を確実に指定 */
+            width: 100%;
         }
         .marquee-content {
             display: inline-block;
@@ -166,19 +179,19 @@
         }
     </style>
 </head>
-<body class="text-gray-800 antialiased relative">
+<body class="text-gray-800 antialiased relative selection:bg-brand-blue selection:text-white">
 
-    <!-- Geometric Backgrounds (Global) -->
-    <div class="stripe-pattern"></div>
-    <div class="geo-shape shape-1"></div>
-    <div class="geo-shape shape-2"></div>
+    <!-- Global Backgrounds -->
+    <div class="bg-dot-grid"></div>
+    <div class="geo-deco shape-1 animate-float-slow"></div>
+    <div class="geo-deco shape-2 animate-float-medium"></div>
 
     <!-- Header -->
     <header id="main-header" class="fixed w-full top-0 z-50 px-4 py-3 md:py-4">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-2 group">
-                <div class="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-tr from-brand-blue to-brand-red rotate-45 group-hover:rotate-90 transition-transform duration-500 shrink-0"></div>
+                <div class="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-tr from-brand-blue to-brand-red rotate-45 group-hover:rotate-90 transition-transform duration-500 shrink-0 shadow-lg"></div>
                 <span class="font-bold text-lg md:text-2xl tracking-tighter truncate">&nbsp; Y. S. PROJECT FESTA <span class="text-brand-blue">2026</span></span>
             </a>
 
@@ -197,33 +210,47 @@
         </div>
 
         <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="md:hidden bg-white shadow-lg absolute top-full left-0 w-full border-t border-gray-100">
+        <div id="mobile-menu" class="md:hidden bg-white/95 backdrop-blur-md shadow-lg absolute top-full left-0 w-full border-t border-gray-100">
             <nav class="flex flex-col p-4 space-y-4 font-bold text-center">
-                <a href="#top" class="block py-2 text-gray-600 hover:bg-gray-50">TOP</a>
-                <a href="#about" class="block py-2 text-gray-600 hover:bg-gray-50">ABOUT</a>
-                <a href="#schedule" class="block py-2 text-gray-600 hover:bg-gray-50">SCHEDULE</a>
-                <a href="#access" class="block py-2 text-gray-600 hover:bg-gray-50">ACCESS</a>
+                <a href="#top" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">TOP</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">ABOUT</a>
+                <a href="#schedule" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">SCHEDULE</a>
+                <a href="#access" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">ACCESS</a>
             </nav>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main id="top" class="w-full overflow-hidden"> <!-- mainにもoverflow-hiddenを追加 -->
+    <main id="top" class="w-full overflow-hidden">
         
         <!-- Hero Section -->
         <section class="relative h-screen flex items-center justify-center overflow-hidden">
             <!-- Background Image with Overlay -->
-            <div class="absolute inset-0 z-[-1]">
+            <div class="absolute inset-0 z-[-2]">
                 <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/image01.jpg" 
                      alt="Festa background" 
-                     class="w-full h-full object-cover opacity-80">
-                <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white"></div>
+                     class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-white"></div>
             </div>
+
+            <!-- Geometric Accents (Hero) -->
+            <!-- Blue Ring -->
+            <div class="absolute top-[15%] right-[10%] w-24 h-24 md:w-40 md:h-40 border-[6px] border-brand-blue/20 rounded-full animate-float-slow z-0"></div>
+            <!-- Yellow Triangle -->
+            <div class="absolute bottom-[20%] left-[5%] text-brand-yellow/30 animate-spin-slow z-0">
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M50 15 L90 85 L10 85 Z" />
+                </svg>
+            </div>
+            <!-- Dashed Line -->
+            <div class="absolute top-1/3 left-0 w-32 h-1 bg-gradient-to-r from-transparent to-brand-red/30"></div>
 
             <!-- Hero Content -->
             <div class="text-center px-4 relative z-10 w-full">
-                <p class="text-brand-blue font-bold tracking-[0.3em] mb-4 reveal-up text-sm md:text-base">2026.03.17 - 03.18</p>
-                <h1 class="text-4xl md:text-7xl lg:text-9xl font-black mb-6 tracking-tighter leading-none reveal-up break-words" style="transition-delay: 0.1s;">
+                <p class="text-brand-blue font-bold tracking-[0.3em] mb-4 reveal-up text-sm md:text-base inline-block bg-white/50 px-4 py-1 rounded-full backdrop-blur-sm">
+                    2026.03.17 - 03.18
+                </p>
+                <h1 class="text-5xl md:text-8xl lg:text-9xl font-black mb-6 tracking-tighter leading-none reveal-up break-words drop-shadow-sm" style="transition-delay: 0.1s;">
                     Sharing<br>
                     <span class="text-clip-gradient">dreams</span>
                 </h1>
@@ -231,7 +258,7 @@
                     未来につなぐ、夢の祭典。
                 </p>
                 <div class="reveal-up" style="transition-delay: 0.3s;">
-                    <a href="#about" class="inline-block px-8 py-3 bg-gray-900 text-white font-bold rounded-none hover:bg-brand-blue transition-colors duration-300 transform hover:skew-x-[-10deg]">
+                    <a href="#about" class="inline-block px-8 py-3 bg-gray-900 text-white font-bold rounded-none hover:bg-brand-blue transition-colors duration-300 transform hover:skew-x-[-10deg] shadow-lg hover:shadow-xl">
                         <span class="inline-block transform hover:skew-x-[10deg]">詳しく見る</span>
                     </a>
                 </div>
@@ -244,7 +271,7 @@
         </section>
 
         <!-- News Banner (Sliding) -->
-        <div class="bg-brand-black text-white py-2 overflow-hidden relative z-20 border-b-4 border-brand-yellow w-full">
+        <div class="bg-brand-black text-white py-2 overflow-hidden relative z-20 border-b-4 border-brand-yellow w-full shadow-lg">
             <div class="marquee-container">
                 <div class="marquee-content font-medium text-sm md:text-base tracking-wider">
                     <span class="mx-8"><span class="text-brand-yellow mr-2">NEW</span> 2025.12.14 サイトを公開しました</span>
@@ -258,19 +285,29 @@
         </div>
 
         <!-- About Section -->
-        <section id="about" class="py-24 px-4 relative w-full">
-            <div class="container mx-auto max-w-6xl">
+        <section id="about" class="py-24 px-4 relative w-full overflow-hidden">
+            <!-- Geometric Accents (About) -->
+            <!-- Dotted Pattern Block -->
+            <div class="absolute top-20 right-0 w-64 h-64 opacity-10" style="background-image: radial-gradient(#0057B7 2px, transparent 2px); background-size: 10px 10px;"></div>
+            <!-- Red Square -->
+            <div class="absolute bottom-10 left-10 w-20 h-20 border-4 border-brand-red/10 rotate-12 animate-float-medium"></div>
+
+            <div class="container mx-auto max-w-6xl relative z-10">
                 <div class="flex flex-col md:flex-row gap-12 items-center">
                     <div class="w-full md:w-1/2 reveal-up">
-                        <div class="relative">
-                            <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand-red/20 rounded-full blur-xl"></div>
+                        <div class="relative group">
+                            <!-- Image Frame Decor -->
+                            <div class="absolute -top-4 -left-4 w-full h-full border-2 border-brand-blue/30 rounded-tr-[4rem] rounded-bl-[4rem] group-hover:top-4 group-hover:left-4 transition-all duration-500"></div>
+                            
                             <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/place01.jpg" 
                                  alt="Event atmosphere" 
                                  class="w-full h-auto shadow-2xl rounded-tr-[4rem] rounded-bl-[4rem] relative z-10 grayscale hover:grayscale-0 transition-all duration-700">
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 reveal-up" style="transition-delay: 0.2s;">
-                        <span class="text-brand-blue font-bold tracking-widest text-sm block mb-2">CONCEPT</span>
+                        <span class="text-brand-blue font-bold tracking-widest text-sm block mb-2 flex items-center gap-2">
+                            <span class="w-8 h-[1px] bg-brand-blue"></span> CONCEPT
+                        </span>
                         <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight">
                             夢を共有して<br>輝かせる場を。
                         </h2>
@@ -284,13 +321,19 @@
                         </p>
                         
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-gray-50 p-4 border-l-4 border-brand-green">
-                                <h3 class="font-bold text-lg mb-1">PRESENTERS</h3>
-                                <p class="text-xs text-gray-500">900＋</p>
+                            <div class="bg-white p-4 border-l-4 border-brand-green shadow-sm hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-lg mb-1 text-brand-green">PRESENTERS</h3>
+                                <div class="flex items-end gap-1">
+                                    <span class="text-3xl font-black text-gray-800">900</span>
+                                    <span class="text-sm text-gray-500 mb-1">＋</span>
+                                </div>
                             </div>
-                            <div class="bg-gray-50 p-4 border-l-4 border-brand-yellow">
-                                <h3 class="font-bold text-lg mb-1">PROJECTS</h3>
-                                <p class="text-xs text-gray-500">700＋</p>
+                            <div class="bg-white p-4 border-l-4 border-brand-yellow shadow-sm hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-lg mb-1 text-brand-yellow">PROJECTS</h3>
+                                <div class="flex items-end gap-1">
+                                    <span class="text-3xl font-black text-gray-800">700</span>
+                                    <span class="text-sm text-gray-500 mb-1">＋</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -302,12 +345,16 @@
         <section id="schedule" class="py-24 px-4 bg-gray-50 relative overflow-hidden w-full">
             <!-- Decorative diagonal background -->
             <div class="absolute top-0 right-0 w-2/3 h-full bg-white transform skew-x-12 translate-x-1/3 z-0"></div>
+            <!-- Geometric Accents (Highlights) -->
+            <div class="absolute top-10 left-10 text-brand-green/10 text-9xl font-black z-0 pointer-events-none select-none">2026</div>
 
             <div class="container mx-auto max-w-6xl relative z-10">
                 <div class="text-center mb-16 reveal-up">
-                    <h2 class="text-4xl font-black mb-4 inline-block relative">
+                    <h2 class="text-4xl font-black mb-4 inline-block relative z-10">
                         HIGHLIGHTS
                         <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-brand-blue"></span>
+                        <!-- Deco circle behind text -->
+                        <span class="absolute -top-4 -right-6 w-12 h-12 bg-brand-yellow/30 rounded-full -z-10 blur-sm"></span>
                     </h2>
                     <p class="text-gray-500">イベント情報</p>
                 </div>
@@ -315,13 +362,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1 -->
                     <a href="#" class="group block reveal-up" style="transition-delay: 0.1s;">
-                        <div class="bg-white h-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
-                            <div class="h-48 overflow-hidden">
+                        <div class="bg-white h-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden rounded-lg">
+                            <div class="h-48 overflow-hidden relative">
                                 <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/time01.jpg" 
                                      alt="Schedule" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/10 transition-colors duration-300"></div>
                             </div>
                             <div class="p-8">
-                                <div class="w-12 h-12 bg-brand-blue text-white flex items-center justify-center text-xl mb-4 absolute top-40 right-8 shadow-md">
+                                <div class="w-12 h-12 bg-brand-blue text-white flex items-center justify-center text-xl mb-4 absolute top-40 right-8 shadow-md rounded-lg group-hover:scale-110 transition-transform">
                                     <i class="fa-regular fa-calendar"></i>
                                 </div>
                                 <h3 class="text-2xl font-bold mb-3 group-hover:text-brand-blue transition-colors">SCHEDULE</h3>
@@ -333,13 +381,14 @@
 
                     <!-- Card 2 -->
                     <a href="#" class="group block reveal-up" style="transition-delay: 0.2s;">
-                        <div class="bg-white h-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
-                            <div class="h-48 overflow-hidden">
+                        <div class="bg-white h-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden rounded-lg">
+                            <div class="h-48 overflow-hidden relative">
                                 <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/place02.jpg" 
                                      alt="Map" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-brand-red/0 group-hover:bg-brand-red/10 transition-colors duration-300"></div>
                             </div>
                             <div class="p-8">
-                                <div class="w-12 h-12 bg-brand-red text-white flex items-center justify-center text-xl mb-4 absolute top-40 right-8 shadow-md">
+                                <div class="w-12 h-12 bg-brand-red text-white flex items-center justify-center text-xl mb-4 absolute top-40 right-8 shadow-md rounded-lg group-hover:scale-110 transition-transform">
                                     <i class="fa-solid fa-map-location-dot"></i>
                                 </div>
                                 <h3 class="text-2xl font-bold mb-3 group-hover:text-brand-red transition-colors">AREA MAP</h3>
@@ -351,13 +400,14 @@
 
                     <!-- Card 3 -->
                     <a href="#" class="group block reveal-up" style="transition-delay: 0.3s;">
-                        <div class="bg-white h-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
-                            <div class="h-48 overflow-hidden">
+                        <div class="bg-white h-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden rounded-lg">
+                            <div class="h-48 overflow-hidden relative">
                                 <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/people01.jpg" 
                                      alt="Attraction" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-brand-yellow/0 group-hover:bg-brand-yellow/10 transition-colors duration-300"></div>
                             </div>
                             <div class="p-8">
-                                <div class="w-12 h-12 bg-brand-yellow text-brand-black flex items-center justify-center text-xl mb-4 absolute top-40 right-8 shadow-md">
+                                <div class="w-12 h-12 bg-brand-yellow text-brand-black flex items-center justify-center text-xl mb-4 absolute top-40 right-8 shadow-md rounded-lg group-hover:scale-110 transition-transform">
                                     <i class="fa-solid fa-star"></i>
                                 </div>
                                 <h3 class="text-2xl font-bold mb-3 group-hover:text-brand-yellow transition-colors">ATTRACTIONS</h3>
@@ -374,6 +424,8 @@
         <section class="py-20 bg-brand-black text-white relative overflow-hidden text-center w-full">
             <!-- Background effects -->
             <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+            <!-- Neon lines -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-blue via-brand-yellow to-brand-red"></div>
             
             <div class="container mx-auto px-4 relative z-10 reveal-up">
                 <h2 class="text-3xl md:text-5xl font-black mb-6">JOIN THE FESTIVAL</h2>
@@ -382,13 +434,13 @@
                     公式SNSをチェック！
                 </p>
                 <div class="flex justify-center gap-6">
-                    <a href="#" class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                    <a href="#" class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-all hover:scale-110">
                         <i class="fa-brands fa-twitter text-xl"></i>
                     </a>
-                    <a href="#" class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                    <a href="#" class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-all hover:scale-110">
                         <i class="fa-brands fa-instagram text-xl"></i>
                     </a>
-                    <a href="#" class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                    <a href="#" class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-all hover:scale-110">
                         <i class="fa-brands fa-youtube text-xl"></i>
                     </a>
                 </div>
@@ -397,7 +449,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 pt-16 pb-8 w-full">
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8 w-full relative overflow-hidden">
+        <!-- Footer Deco -->
+        <div class="absolute bottom-0 right-0 w-32 h-32 bg-gray-50 rounded-tl-full -z-10"></div>
+
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-1">
