@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ===============================================
+         SEO & Meta Information
+         検索エンジン最適化（SEO）のための設定
+    =============================================== -->
+    <title>コンセプト | Yokohama-SOEI Project Festa 2026</title>
+    <meta name="description" content="Yokohama-SOEI Project Festa 2026のコンセプトページです。「Sharing Dreams -夢の共有-」をテーマに、中学2年生から高校2年生までの生徒たちが研究成果を発表する、未来創造の祭典の理念をご紹介します。">
+    <meta name="keywords" content="Project Festa 2026, コンセプト, 理念, 研究発表, 横浜創英, 文化祭, 学園祭, 探究, 教育">
+    <meta name="author" content="Yokohama-SOEI Project Festa Executive Committee">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0057B7">
+
+    <!-- OGP (Open Graph Protocol) for SNS Sharing -->
+    <meta property="og:site_name" content="Yokohama-SOEI Project Festa 2026">
+    <meta property="og:title" content="コンセプト | Project Festa 2026">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ataro-qqq.github.io/PFH-alpha-0.1.1/concept/">
+    <meta property="og:image" content="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/place01.jpg">
+    <meta property="og:description" content="私たちのフェスタが目指すもの。それは単なる発表会ではなく、未来への対話です。Project Festa 2026のコアコンセプトをご覧ください。">
+    <meta property="og:locale" content="ja_JP">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="コンセプト | Project Festa 2026">
+    <meta name="twitter:description" content="未来を創る、生徒たちの挑戦。Project Festa 2026のコンセプトと概要を公開。">
+    <meta name="twitter:image" content="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/place01.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/favicon01.ico">
+    <link rel="apple-touch-icon" href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/apple-touch-icon.png">
+
+    <!-- ===============================================
+         Security Configuration
+         セキュリティ設定 (CSPなど)
+    =============================================== -->
+    <!-- 
+        Content Security Policy (CSP)
+        - script-src: Tailwind CDN, Google Fonts APIなどを許可
+        - style-src: Google Fonts, Tailwind, FontAwesomeなどを許可
+        - img-src: 自身のドメイン, 外部画像, dataスキームを許可
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self';">
+
+    <!-- ===============================================
+         External Resources
+         外部リソースの読み込み
+    =============================================== -->
+    <!-- Fonts: Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons: FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (via CDN for Github Pages simplicity) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind Configuration - Matching the provided design system
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0057B7',   // Primary Blue
+                            yellow: '#FFD700', // Accent Yellow
+                            black: '#212121',  // Text Black
+                            green: '#009B77',  // Decoration Green
+                            red: '#DD2E44',    // Decoration Red
+                            gray: '#F3F4F6',   // Background Gray
+                            dark: '#1a1a1a',   // Footer Background
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-medium': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-pattern': "url('data:image/svg+xml,%3Csvg width=\\'20\\' height=\\'20\\' viewBox=\\'0 0 20 20\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'%239C92AC\\' fill-opacity=\\'0.1\\' fill-rule=\\'evenodd\\'%3E%3Ccircle cx=\\'3\\' cy=\\'3\\' r=\\'3\\'/%3E%3Ccircle cx=\\'13\\' cy=\\'13\\' r=\\'3\\'/%3E%3C/g%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ===============================================
+         Custom CSS
+         ページ固有のスタイル定義
+    =============================================== -->
+    <style>
+        /* Base Styles */
+        html, body {
+            overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+            width: 100%;
+            background-color: #ffffff;
+            -webkit-text-size-adjust: 100%;
+            color: #333333;
+            line-height: 1.8; /* Improve readability */
+        }
+
+        /* --- Background Patterns (Consistent with other pages) --- */
+        .bg-dot-grid {
+            background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            position: fixed; /* Fixed to stay during scroll */
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -3;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Decorative Geometric Shapes */
+        .geo-deco {
+            position: absolute;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.8;
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+        .shape-1 {
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(0,87,183,0.08) 0%, rgba(0,155,119,0) 70%);
+            top: -10vw;
+            right: -10vw;
+        }
+        .shape-2 {
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(221,46,68,0.08) 0%, rgba(255,215,0,0) 70%);
+            bottom: 10vh;
+            left: -10vw;
+        }
+
+        /* --- Header Styling --- */
+        #main-header {
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease, padding 0.3s ease;
+        }
+        #main-header.hidden-header {
+            transform: translateY(-100%);
+        }
+        #main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        /* --- Typography & Gradients --- */
+        .text-clip-gradient {
+            background: linear-gradient(90deg, #0057B7, #DD2E44, #FFD700, #009B77);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 8s ease infinite;
+            font-weight: 900;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Scroll Animation (Intersection Observer Target) --- */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered delays for child elements */
+        .reveal-delay-100 { transition-delay: 0.1s; }
+        .reveal-delay-200 { transition-delay: 0.2s; }
+        .reveal-delay-300 { transition-delay: 0.3s; }
+
+        /* --- Component Specific Styles --- */
+        
+        /* Concept Card */
+        .concept-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Teacher Image Frame */
+        .teacher-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .teacher-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            pointer-events: none;
+        }
+
+        /* Quote styling */
+        .quote-mark {
+            font-family: serif;
+            font-size: 6rem;
+            line-height: 1;
+            color: #e5e7eb;
+            position: absolute;
+            z-index: -1;
+        }
+        .quote-top { top: -2rem; left: -1rem; }
+        .quote-bottom { bottom: -4rem; right: 1rem; transform: rotate(180deg); }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 600px;
+            opacity: 1;
+        }
+
+        /* Vertical Writing Mode for Japanese aesthetic touches */
+        .writing-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: 0.2em;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased relative selection:bg-brand-blue selection:text-white flex flex-col min-h-screen">
+
+    <!-- ===============================================
+         Background Elements
+         背景装飾要素
+    =============================================== -->
+    <div class="bg-dot-grid"></div>
+    <div class="geo-deco shape-1 animate-float-slow"></div>
+    <div class="geo-deco shape-2 animate-float-medium"></div>
+
+    <!-- Additional Abstract Shapes for Concept Page -->
+    <div class="absolute top-1/3 left-10 w-24 h-24 rounded-full bg-brand-yellow opacity-10 blur-xl animate-pulse-slow -z-10"></div>
+    <div class="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-brand-green opacity-10 blur-xl animate-float-fast -z-10"></div>
+
+    <!-- ===============================================
+         Header Section
+         ナビゲーションヘッダー
+    =============================================== -->
+    <header id="main-header" class="fixed w-full top-0 z-50 px-4 py-3 md:py-4">
+        <div class="container mx-auto flex justify-between items-center bg-white/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none rounded-xl md:rounded-none px-4 md:px-0 py-2 md:py-0 shadow-sm md:shadow-none border border-gray-100 md:border-none">
+            
+            <!-- Logo Area -->
+            <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="flex items-center gap-3 group relative z-50">
+                <!-- Simple Geometric Logo Mark -->
+                <div class="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-tr from-brand-blue to-brand-red rotate-45 rounded-lg shadow-lg group-hover:rotate-12 transition-transform duration-300 flex items-center justify-center">
+                    <span class="text-white font-bold text-xs -rotate-45">YS</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-gray-900 text-sm md:text-base leading-tight tracking-tight">Project Festa 2026</span>
+                    <span class="text-[10px] md:text-xs text-gray-500 tracking-wider">YOKOHAMA SOEI</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 bg-white/90 backdrop-blur-md px-8 py-3 rounded-full shadow-sm border border-gray-100">
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="text-sm font-medium text-gray-600 hover:text-brand-blue transition-colors relative group">
+                    ホーム
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/schedule.html" class="text-sm font-medium text-gray-600 hover:text-brand-blue transition-colors relative group">
+                    スケジュール
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/attractions/" class="text-sm font-medium text-gray-600 hover:text-brand-blue transition-colors relative group">
+                    みどころ
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-sm font-bold text-brand-blue cursor-default">
+                    コンセプト
+                    <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-brand-blue"></span>
+                </a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/access.html" class="text-sm font-medium text-gray-600 hover:text-brand-blue transition-colors relative group">
+                    アクセス
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden relative z-50 p-2 text-gray-600 focus:outline-none" aria-label="メニューを開く">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-t border-gray-100 shadow-xl">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="block py-2 px-4 rounded-lg hover:bg-gray-50 text-gray-700 font-medium">
+                    <i class="fas fa-home w-6 text-brand-blue"></i> ホーム
+                </a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/schedule.html" class="block py-2 px-4 rounded-lg hover:bg-gray-50 text-gray-700 font-medium">
+                    <i class="fas fa-clock w-6 text-brand-blue"></i> スケジュール
+                </a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/attractions/" class="block py-2 px-4 rounded-lg hover:bg-gray-50 text-gray-700 font-medium">
+                    <i class="fas fa-star w-6 text-brand-blue"></i> みどころ
+                </a>
+                <a href="#" class="block py-2 px-4 rounded-lg bg-brand-blue/10 text-brand-blue font-bold">
+                    <i class="fas fa-lightbulb w-6"></i> コンセプト
+                </a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/access.html" class="block py-2 px-4 rounded-lg hover:bg-gray-50 text-gray-700 font-medium">
+                    <i class="fas fa-map-marker-alt w-6 text-brand-blue"></i> アクセス
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-24 pb-12">
+        
+        <!-- ===============================================
+             Section 1: Title & Tagline
+             題名とひとこと
+        =============================================== -->
+        <section class="container mx-auto px-4 mb-24 lg:mb-32 relative">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Decorative Icon -->
+                <div class="reveal-up inline-block mb-6 p-4 rounded-full bg-gradient-to-tr from-blue-50 to-white shadow-lg border border-blue-100">
+                    <i class="fas fa-compass text-3xl md:text-4xl text-brand-blue"></i>
+                </div>
+
+                <!-- Main Title (Concept) -->
+                <h1 class="reveal-up reveal-delay-100 text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6">
+                    <span class="text-clip-gradient block pb-2">DISCOVERY</span>
+                </h1>
+
+                <!-- Tagline (Hitokoto) -->
+                <p class="reveal-up reveal-delay-200 text-xl md:text-2xl lg:text-3xl font-bold text-gray-700 mb-8 leading-relaxed">
+                    「問い」からはじまる、<br class="md:hidden">無限の未来へ。
+                </p>
+
+                <!-- Small explanatory text -->
+                <p class="reveal-up reveal-delay-300 text-gray-500 font-medium tracking-widest text-sm md:text-base uppercase">
+                    Yokohama Soei Project Festa 2026 Core Concept
+                </p>
+
+                <!-- Scroll Down Indicator -->
+                <div class="reveal-up reveal-delay-300 absolute -bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+                    <span class="text-xs font-bold tracking-widest text-gray-400">SCROLL</span>
+                    <div class="w-px h-12 bg-gradient-to-b from-brand-blue to-transparent"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===============================================
+             Section 2: Concept Details
+             コンセプトの詳細
+        =============================================== -->
+        <section class="container mx-auto px-4 mb-32 relative">
+            <!-- Background Decoration for this section -->
+            <div class="absolute top-0 right-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+                <svg class="absolute top-10 right-0 md:right-10 text-gray-100 w-64 h-64 md:w-96 md:h-96" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-4.9C93.5,9.3,82.2,22.9,71.2,34.3C60.2,45.7,49.5,54.9,37.8,62.2C26.1,69.5,13.4,74.9,-0.6,75.9C-14.6,76.9,-28.1,73.5,-40.5,66.6C-52.9,59.7,-64.2,49.3,-72.5,36.5C-80.8,23.7,-86.1,8.5,-84.3,-5.9C-82.5,-20.3,-73.6,-33.9,-62.7,-44.2C-51.8,-54.5,-38.9,-61.5,-26,-69.7C-13.1,-77.9,-0.2,-87.3,13.8,-88.9C27.8,-90.5,44.7,-76.4,44.7,-76.4Z" transform="translate(100 100)" />
+                </svg>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Left: Visual/Graphic -->
+                <div class="reveal-up relative order-2 md:order-1">
+                    <div class="concept-card p-8 md:p-12 rounded-3xl relative overflow-hidden group">
+                        <!-- Card Background Gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-yellow-50 opacity-80"></div>
+                        
+                        <!-- Content -->
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                                <span class="w-2 h-8 bg-brand-blue rounded-full"></span>
+                                Sharing Dreams
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                今年のフェスタのサブテーマは「Sharing Dreams -夢の共有-」。<br>
+                                自分の興味関心を深く掘り下げ、他者と共有することで、新たな発見や共感が生まれます。
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                教室の中だけでは完結しない学び。社会との接点を見つけ、自分なりの「問い」を立てるプロセスそのものが、私たちのフェスタです。
+                            </p>
+                        </div>
+
+                        <!-- Animated Circles -->
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-blue/10 rounded-full blur-2xl group-hover:bg-brand-blue/20 transition-colors duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Right: Text & Philosophy -->
+                <div class="reveal-up reveal-delay-200 order-1 md:order-2">
+                    <span class="text-brand-red font-bold tracking-widest text-sm uppercase mb-2 block">Our Philosophy</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                        「正解」のない世界で、<br>
+                        <span class="text-brand-blue">自分だけの答え</span>を創る。
+                    </h2>
+                    <div class="space-y-4 text-gray-600 leading-loose">
+                        <p>
+                            急速に変化する現代社会において、既存の知識を覚えるだけでは対応できない課題が増えています。
+                        </p>
+                        <p>
+                            Project Festaは、単なる文化祭や研究発表会ではありません。生徒一人ひとりが「自分が本当に知りたいこと」「解決したい課題」に向き合い、一年間をかけて探究してきた軌跡です。
+                        </p>
+                        <p>
+                            失敗を恐れず、仮説と検証を繰り返す。そのプロセスで得た「気づき」こそが、未来を切り拓く力になると信じています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===============================================
+             Section 3: Teacher's Greeting
+             教員からのご挨拶
+        =============================================== -->
+        <section class="bg-gray-50 py-20 mb-32 relative overflow-hidden">
+            <!-- Diagonal Background Slice -->
+            <div class="absolute inset-0 bg-white transform -skew-y-3 origin-top-left scale-110 z-0"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                    
+                    <!-- Teacher Image -->
+                    <div class="reveal-up w-full md:w-1/2 lg:w-5/12">
+                        <div class="teacher-frame group">
+                            <!-- Image URL from instructions -->
+                            <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/teacher02.jpg" 
+                                 alt="校長先生からのご挨拶" 
+                                 class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                 loading="lazy">
+                            
+                            <!-- Overlay Gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                            
+                            <!-- Name Badge -->
+                            <div class="absolute bottom-6 left-6 text-white">
+                                <p class="text-xs font-light tracking-wider opacity-90 mb-1">校長 / Principal</p>
+                                <p class="text-xl font-bold tracking-wide">工藤 勇一</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Teacher Message -->
+                    <div class="reveal-up reveal-delay-200 w-full md:w-1/2 lg:w-7/12 relative">
+                        <!-- Decorative Quote Marks -->
+                        <div class="quote-mark quote-top text-gray-200">“</div>
+                        
+                        <div class="mb-8">
+                            <span class="inline-block py-1 px-3 bg-brand-blue text-white text-xs font-bold rounded-full mb-4">Message</span>
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                                自律した学習者として、<br>
+                                社会と繋がる経験を。
+                            </h2>
+                        </div>
+
+                        <div class="prose prose-lg text-gray-600 leading-relaxed space-y-4">
+                            <p>
+                                横浜創英では、「自律」をキーワードに教育活動を行っています。誰かに言われたからやるのではなく、自ら目標を立て、計画し、実行し、振り返る。このサイクルを回す最大の機会が Project Festa です。
+                            </p>
+                            <p>
+                                生徒たちは、教員が教える「正解」ではなく、自分たちで見つけ出した「納得解」を提示します。その表現方法は多様です。論文、ポスター、実演、映像作品、あるいはワークショップ。
+                            </p>
+                            <p>
+                                来場者の皆様には、ぜひ生徒たちの発表に対して率直なフィードバックをいただきたいと思います。社会との対話こそが、彼らの学びを次のステージへと押し上げる原動力となるからです。
+                            </p>
+                        </div>
+
+                        <!-- Decorative Quote Marks -->
+                        <div class="quote-mark quote-bottom text-gray-200">”</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===============================================
+             Section 4: Festa Overview
+             フェスタの概要
+        =============================================== -->
+        <section class="container mx-auto px-4 mb-32">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-brand-green font-bold tracking-widest text-sm uppercase">Overview</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">開催概要と特色</h2>
+                <div class="w-16 h-1 bg-brand-green mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <!-- Grade Levels & Content Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                
+                <!-- Card 1: Participants -->
+                <div class="reveal-up bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-graduate text-2xl text-brand-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">発表主体</h3>
+                    <p class="text-gray-600">
+                        <span class="text-2xl font-bold text-brand-blue">中2</span> から 
+                        <span class="text-2xl font-bold text-brand-blue">高2</span> まで
+                    </p>
+                    <p class="text-sm text-gray-500 mt-2">
+                        学年の枠を超えたプロジェクトチームや、<br>個人の探究成果が集結します。
+                    </p>
+                </div>
+
+                <!-- Card 2: Main Content -->
+                <div class="reveal-up reveal-delay-100 bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-flask text-2xl text-brand-yellow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">主な内容</h3>
+                    <p class="text-gray-600 font-bold mb-1">サイエンス・リサーチ発表</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        1年間の探究活動（PBL）の成果発表。<br>
+                        文理融合、社会課題解決、<br>
+                        クリエイティブ表現など多岐にわたります。
+                    </p>
+                </div>
+
+                <!-- Card 3: Format -->
+                <div class="reveal-up reveal-delay-200 bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-comments text-2xl text-brand-red"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">形式</h3>
+                    <p class="text-gray-600 font-bold mb-1">インタラクティブ</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        一方的なプレゼンテーションだけでなく、<br>
+                        ポスターセッションや体験型展示を通じ、<br>
+                        来場者と対話を行います。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Detailed Table / List -->
+            <div class="reveal-up bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-w-4xl mx-auto">
+                <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+                    <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fas fa-info-circle text-gray-400"></i>
+                        開催データ
+                    </h4>
+                </div>
+                <div class="divide-y divide-gray-100">
+                    <div class="grid grid-cols-1 md:grid-cols-4 px-6 py-4 hover:bg-gray-50 transition-colors">
+                        <div class="font-bold text-gray-500 md:col-span-1 py-1">名称</div>
+                        <div class="text-gray-800 md:col-span-3 py-1 font-medium">Yokohama-SOEI Project Festa 2026</div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 px-6 py-4 hover:bg-gray-50 transition-colors">
+                        <div class="font-bold text-gray-500 md:col-span-1 py-1">日程</div>
+                        <div class="text-gray-800 md:col-span-3 py-1">
+                            <span class="inline-block bg-brand-blue/10 text-brand-blue px-2 py-0.5 rounded text-sm font-bold mr-2">Day 1</span> 3月17日(土) 9:00 - 16:00<br>
+                            <span class="inline-block bg-brand-red/10 text-brand-red px-2 py-0.5 rounded text-sm font-bold mr-2 mt-2">Day 2</span> 3月18日(日) 9:00 - 15:30
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 px-6 py-4 hover:bg-gray-50 transition-colors">
+                        <div class="font-bold text-gray-500 md:col-span-1 py-1">会場</div>
+                        <div class="text-gray-800 md:col-span-3 py-1">
+                            横浜創英中学・高等学校<br>
+                            <span class="text-sm text-gray-500">（全教室、アリーナ、サイエンスラボ、グラウンド他）</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 px-6 py-4 hover:bg-gray-50 transition-colors">
+                        <div class="font-bold text-gray-500 md:col-span-1 py-1">参加学年</div>
+                        <div class="text-gray-800 md:col-span-3 py-1">
+                            中学校2年生、中学校3年生<br>
+                            高等学校1年生、高等学校2年生
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action (Schedule Link) -->
+        <section class="container mx-auto px-4 mb-20">
+            <div class="reveal-up text-center">
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/schedule.html" class="inline-flex items-center gap-3 bg-brand-blue hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full shadow-lg shadow-blue-500/30 transition-all transform hover:-translate-y-1 hover:shadow-xl group">
+                    <span>具体的なスケジュールを見る</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===============================================
+         Footer
+         フッター（他ページのデザインを踏襲）
+    =============================================== -->
+    <footer class="bg-brand-dark text-white pt-16 pb-8 relative overflow-hidden">
+        <!-- Abstract Footer Background -->
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-blue via-brand-yellow to-brand-green"></div>
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Footer Column 1: Brand -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-gradient-to-tr from-brand-blue to-brand-red rotate-45 rounded flex items-center justify-center">
+                            <span class="text-white text-xs font-bold -rotate-45">YS</span>
+                        </div>
+                        <span class="font-bold text-lg">Project Festa 2026</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        横浜創英中学・高等学校<br>
+                        未来を創る、学びの祭典。
+                    </p>
+                    <div class="flex gap-4 pt-2">
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition-colors text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-800 transition-colors text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Column 2: Links -->
+                <div>
+                    <h4 class="font-bold text-gray-200 mb-4 border-b border-gray-700 pb-2 inline-block">Contents</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="hover:text-white transition-colors"><i class="fas fa-angle-right text-xs mr-2"></i>ホーム</a></li>
+                        <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/schedule.html" class="hover:text-white transition-colors"><i class="fas fa-angle-right text-xs mr-2"></i>スケジュール</a></li>
+                        <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/attractions/" class="hover:text-white transition-colors"><i class="fas fa-angle-right text-xs mr-2"></i>みどころ</a></li>
+                        <li><a href="#" class="text-white font-bold"><i class="fas fa-angle-right text-xs mr-2"></i>コンセプト</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 3: Information -->
+                <div>
+                    <h4 class="font-bold text-gray-200 mb-4 border-b border-gray-700 pb-2 inline-block">Information</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/access.html" class="hover:text-white transition-colors"><i class="fas fa-angle-right text-xs mr-2"></i>アクセス・会場マップ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors"><i class="fas fa-angle-right text-xs mr-2"></i>よくある質問</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors"><i class="fas fa-angle-right text-xs mr-2"></i>お問い合わせ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors"><i class="fas fa-angle-right text-xs mr-2"></i>プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 4: Contact -->
+                <div>
+                    <h4 class="font-bold text-gray-200 mb-4 border-b border-gray-700 pb-2 inline-block">Contact</h4>
+                    <address class="text-sm text-gray-400 not-italic leading-relaxed">
+                        〒221-0004<br>
+                        神奈川県横浜市神奈川区西大口28<br>
+                        TEL: 045-421-3121
+                    </address>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2026 Yokohama Soei Junior & Senior High School. All Rights Reserved.</p>
+                <p class="mt-2 text-gray-600">Project Festa Executive Committee</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===============================================
+         JavaScript Logic
+         アニメーション制御・メニュー開閉など
+    =============================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. Intersection Observer for Scroll Animation (Fade In) ---
+            // 要素が画面に入ったときに .active クラスを付与してアニメーションを開始
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.15 // 要素の15%が見えたら発火
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // 一度表示したら監視を終了（パフォーマンス最適化）
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up');
+            revealElements.forEach(el => observer.observe(el));
+
+            // --- 2. Header Scroll Effect (Glassmorphism) ---
+            // スクロール時にヘッダーの背景を白くし、影をつける
+            const header = document.getElementById('main-header');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Add/Remove background styles
+                if (scrollTop > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Optional: Hide header on scroll down, show on scroll up (Smart hide)
+                // if (scrollTop > lastScrollTop && scrollTop > 200) {
+                //     header.classList.add('hidden-header');
+                // } else {
+                //     header.classList.remove('hidden-header');
+                // }
+                // lastScrollTop = scrollTop;
+            });
+
+            // --- 3. Mobile Menu Toggle ---
+            // ハンバーガーメニューの制御
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const icon = menuBtn.querySelector('i');
+            let isMenuOpen = false;
+
+            menuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('open');
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times'); // Close icon
+                } else {
+                    mobileMenu.classList.remove('open');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars'); // Hamburger icon
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    isMenuOpen = false;
+                    mobileMenu.classList.remove('open');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // --- 4. Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
