@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <!-- Favicon -->
+    <link rel="icon" href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/favicon01.ico" />
+    
+    <title>お知らせ | Yokohama-SOEI Project Festa 2026</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Project Festa 2026（プロジェクトフェスタ2026）に関する最新情報、運営からのお知らせ、更新履歴を掲載しています。チケット情報、スケジュール変更、注意事項などをご確認ください。">
+    <meta name="keywords" content="Project Festa 2026, お知らせ, ニュース, INFORMATION, 更新情報, 横浜創英, 文化祭">
+    <meta name="robots" content="index, follow">
+    
+    <!-- OGP (SNS Sharing) -->
+    <meta property="og:title" content="お知らせ | Project Festa 2026">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ataro-qqq.github.io/PFH-alpha-0.1.1/information/">
+    <meta property="og:image" content="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/place01.jpg">
+    <meta property="og:description" content="Project Festa 2026の最新ニュース。チケット情報やイベント詳細はこちら。">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Security Headers (CSP) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self';">
+
+    <!-- Fonts: Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons: FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0057B7',
+                            yellow: '#FFD700',
+                            black: '#212121',
+                            green: '#009B77',
+                            red: '#DD2E44',
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-medium': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* --- Base Styles --- */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            background-color: #ffffff;
+            -webkit-text-size-adjust: 100%;
+            color: #212121;
+        }
+
+        /* --- Background Patterns --- */
+        .bg-dot-grid {
+            background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -3;
+            opacity: 0.6;
+        }
+
+        /* Fixed Background Container */
+        .fixed-bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -10;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* --- Header Transitions --- */
+        #main-header {
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+        }
+        #main-header.hidden-header {
+            transform: translateY(-100%);
+        }
+        #main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Text Gradients --- */
+        .text-clip-gradient {
+            background: linear-gradient(90deg, #0057B7, #DD2E44, #FFD700, #009B77);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 8s ease infinite;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Scroll Animations (Reveal Up) --- */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Mobile Menu --- */
+        #mobile-menu {
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        /* --- News List Styles --- */
+        .news-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-item:hover {
+            background-color: #f9fafb;
+            transform: translateX(8px);
+        }
+        
+        .tag-badge {
+            font-size: 0.7rem;
+            padding: 0.125rem 0.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        .tag-important { background-color: #fee2e2; color: #991b1b; } /* 重要 */
+        .tag-event { background-color: #e0f2fe; color: #0369a1; } /* イベント */
+        .tag-info { background-color: #f3f4f6; color: #4b5563; } /* お知らせ */
+        .tag-recruit { background-color: #fef3c7; color: #92400e; } /* 募集 */
+
+        /* --- Modal Styles --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .modal-container {
+            background: white;
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-overlay.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+        
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: #f8fafc;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            line-height: 1.8;
+            color: #374151;
+        }
+        
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Global Backgrounds (Fixed) -->
+    <div class="fixed-bg-container">
+        <div class="bg-dot-grid"></div>
+        
+        <!-- Animated Shapes -->
+        <div class="absolute top-[-10vw] right-[-10vw] w-[50vw] h-[50vw] rounded-full bg-gradient-to-b from-brand-blue/5 to-transparent animate-float-slow"></div>
+        <div class="absolute bottom-[10vh] left-[-10vw] w-[40vw] h-[40vw] rounded-full bg-gradient-to-t from-brand-yellow/5 to-transparent animate-float-medium"></div>
+        
+        <!-- Geometric Accents -->
+        <div class="absolute top-[15%] left-[8%] w-16 h-16 border-4 border-brand-green/10 rounded-full animate-pulse-slow"></div>
+        <div class="absolute bottom-[20%] right-[5%] w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-b-[34px] border-b-brand-red/10 rotate-[-15deg] hidden md:block"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header" class="fixed w-full top-0 z-50 px-4 py-3 md:py-4 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-tr from-brand-blue to-brand-red rotate-45 group-hover:rotate-90 transition-transform duration-500 shrink-0 shadow-lg"></div>
+                <span class="font-bold text-lg md:text-2xl tracking-tighter truncate">&nbsp; Y. S. PROJECT FESTA <span class="text-brand-blue">2026</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 font-medium text-sm tracking-wide">
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="hover:text-brand-blue transition-colors py-2 border-b-2 border-transparent hover:border-brand-blue">TOP</a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/concept/" class="hover:text-brand-blue transition-colors py-2 border-b-2 border-transparent hover:border-brand-blue">ABOUT</a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/schedule/" class="hover:text-brand-blue transition-colors py-2 border-b-2 border-transparent hover:border-brand-blue">SCHEDULE</a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/map/" class="hover:text-brand-blue transition-colors py-2 border-b-2 border-transparent hover:border-brand-blue">MAP</a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/attractions/" class="hover:text-brand-blue transition-colors py-2 border-b-2 border-transparent hover:border-brand-blue">ATTRACTIONS</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-2xl focus:outline-none p-2" aria-label="メニューを開く">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white/95 backdrop-blur-md shadow-lg absolute top-full left-0 w-full border-t border-gray-100">
+            <nav class="flex flex-col p-4 space-y-4 font-bold text-center">
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">TOP</a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/concept/" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">ABOUT</a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/schedule/" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">SCHEDULE</a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/map/" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">MAP</a>
+                <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/attractions/" class="block py-2 text-gray-600 hover:bg-gray-50 hover:text-brand-blue">ATTRACTIONS</a>
+                <a href="#" class="block py-2 text-brand-blue bg-blue-50">INFORMATION</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-24 pb-20 w-full relative">
+
+        <!-- Page Title Area -->
+        <section class="relative py-12 md:py-20 px-4 text-center overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[15vw] md:text-[10vw] font-black text-gray-100 -z-10 select-none whitespace-nowrap">
+                NEWS
+            </div>
+            <div class="container mx-auto relative z-10 reveal-up">
+                <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight">
+                    INFORMATION
+                    <span class="block text-base md:text-xl font-medium text-brand-blue mt-2 tracking-widest">お知らせ</span>
+                </h1>
+                <p class="text-lg md:text-xl font-medium text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    フェスタに関する最新情報をお届けします。<br>
+                    当日の変更点や重要なお知らせはこちらをご確認ください。
+                </p>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-blue to-brand-green mx-auto mt-8 rounded-full"></div>
+            </div>
+        </section>
+
+        <!-- News List Section -->
+        <section class="container mx-auto max-w-5xl px-4 mb-20 reveal-up" style="transition-delay: 0.1s;">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden min-h-[400px]">
+                <!-- Header of List -->
+                <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                    <span class="font-bold text-gray-500 text-sm">NEWS LIST</span>
+                    <span class="text-xs text-gray-400" id="news-count">Loading...</span>
+                </div>
+
+                <!-- News Items Container -->
+                <div id="news-container" class="divide-y divide-gray-100">
+                    <!-- Items will be injected here via JavaScript -->
+                </div>
+                
+                <!-- Pagination (Removed as requested) -->
+                
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="py-16 bg-brand-black text-white relative overflow-hidden">
+             <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+             <div class="container mx-auto px-4 text-center relative z-10 reveal-up">
+                 <h2 class="text-2xl md:text-3xl font-bold mb-4">メディア・取材のお申し込み</h2>
+                 <p class="text-gray-400 mb-8 max-w-xl mx-auto text-sm md:text-base">
+                     Project Festa 2026に関する取材、メディア掲載をご希望の方は、<br class="hidden md:inline">下記フォームよりお問い合わせください。
+                 </p>
+                 <a href="#" class="inline-block px-8 py-3 bg-transparent border border-white text-white font-bold rounded hover:bg-white hover:text-brand-black transition-all duration-300">
+                     お問い合わせフォーム <i class="fa-solid fa-envelope ml-2"></i>
+                 </a>
+             </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8 w-full relative overflow-hidden">
+        <!-- Footer Deco -->
+        <div class="absolute bottom-0 right-0 w-32 h-32 bg-gray-50 rounded-tl-full -z-10"></div>
+        <div class="absolute top-10 left-[-20px] w-20 h-20 bg-brand-blue/5 rounded-full blur-xl"></div>
+        
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-6 h-6 bg-gradient-to-tr from-brand-blue to-brand-red rotate-45"></div>
+                        <span class="font-bold text-xl tracking-tighter">PROJECT FESTA 2026</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-loose">
+                        〒221-0004<br>
+                        神奈川県横浜市神奈川区西大口28<br>
+                        お問い合わせ: info@project-festa-2026.example
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 border-l-4 border-brand-blue pl-3">PAGES</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="hover:text-brand-blue transition-colors">トップページ</a></li>
+                        <li><a href="#" class="font-bold text-brand-blue">お知らせ</a></li>
+                        <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/concept/" class="hover:text-brand-blue transition-colors">コンセプト</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 border-l-4 border-brand-red pl-3">EVENT</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/schedule/" class="hover:text-brand-blue transition-colors">スケジュール</a></li>
+                        <li><a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/map/" class="hover:text-brand-blue transition-colors">会場マップ</a></li>
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">実行委員会より</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 border-l-4 border-brand-yellow pl-3">SUPPORT</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">よくある質問</a></li>
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">プライバシーポリシー</a></li>
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">サイトマップ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+           <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">  
+             <p>&copy; 2026 Yokohama Soei High School Project Festa Executive Committee.</p>  
+             <div class="flex space-x-4 mt-4 md:mt-0">  
+                 <a href="#" class="hover:text-brand-blue"><i class="fa-brands fa-twitter"></i></a>  
+                 <a href="#" class="hover:text-brand-blue"><i class="fa-brands fa-instagram"></i></a>  
+                 <a href="#" class="hover:text-brand-blue"><i class="fa-brands fa-youtube"></i></a>  
+             </div>  
+           </div>  
+        </div>  
+    </footer>
+
+    <!-- News Modal -->
+    <div id="news-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="flex flex-col gap-2">
+                    <span id="modal-date" class="text-xs text-gray-400 font-bold tracking-widest"></span>
+                    <h2 id="modal-title" class="text-xl md:text-2xl font-bold leading-tight"></h2>
+                    <div id="modal-tags" class="flex gap-2 mt-1"></div>
+                </div>
+                <button id="close-modal" class="modal-close p-2" aria-label="閉じる">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-content">
+                <!-- Content injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* --- 1. News Data & Rendering --- */
+            const newsData = [
+                {
+                    id: 1,
+                    date: "2026.03.15",
+                    category: "important",
+                    title: "【重要】当日の来場方法と感染症対策について",
+                    summary: "Project Festa 2026へのご来場に関する重要なお知らせです。入場ゲートの場所変更とマスク着用推奨エリアについてご確認ください。",
+                    content: `<p>Project Festa 2026にご来場いただく皆様へ、当日のスムーズな入場と安全確保のため、以下の点についてご協力をお願い申し上げます。</p>
+                              <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">入場ゲートについて</h4>
+                              <p>混雑緩和のため、<strong>一般来場者様は「西門」からのご入場</strong>をお願いいたします。正門は関係者専用となりますのでご注意ください。</p>
+                              <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">感染症対策</h4>
+                              <p>屋内ステージおよび飲食エリアでは、引き続き手指消毒へのご協力をお願いしております。各会場入り口に消毒液を設置しております。</p>`
+                },
+                {
+                    id: 2,
+                    date: "2026.03.14",
+                    category: "event",
+                    title: "フィナーレのスペシャルゲストが決定しました！",
+                    summary: "2日目のグランドフィナーレに登場するスペシャルゲストが決定。卒業生アーティストによる特別ライブも開催されます。",
+                    content: `<p>3月18日（水）16:00から行われるグランドフィナーレに、本校卒業生のシンガーソングライター〇〇さんの出演が決定いたしました！</p>
+                              <p>後輩たちの夢を応援するために駆けつけてくれます。当日は生徒とのコラボステージも予定されています。</p>
+                              <div class="bg-gray-100 p-4 rounded mt-4"><strong>出演時間：</strong> 3月18日 16:30頃〜<br><strong>場所：</strong> メインアリーナ</div>`
+                },
+                {
+                    id: 3,
+                    date: "2026.03.10",
+                    category: "info",
+                    title: "デジタルパンフレットの配布を開始しました",
+                    summary: "当日のプログラム詳細や会場マップを掲載したデジタルパンフレットがダウンロード可能です。スマートフォンで手軽にご確認いただけます。",
+                    content: `<p>環境配慮の観点から、紙のパンフレットを削減し、デジタルパンフレットを導入しています。</p>
+                              <p>以下のリンクよりPDFデータをダウンロードしてご利用ください。会場内にはQRコードも掲示いたします。</p>
+                              <p class="mt-4"><a href="#" class="text-brand-blue underline font-bold">👉 デジタルパンフレットをダウンロード (PDF: 5MB)</a></p>`
+                },
+                {
+                    id: 4,
+                    date: "2026.03.05",
+                    category: "event",
+                    title: "高2探究「未来創造プロジェクト」最終プレゼン審査員発表",
+                    summary: "高校2年生の探究学習の集大成となるプレゼンテーション。外部審査員として各界の専門家をお招きします。",
+                    content: `<p>高校2年生が1年間取り組んできた「未来創造プロジェクト」。その最終プレゼンテーション審査員として、大学教授や企業経営者の方々をお招きします。</p>
+                              <p>生徒たちの「本気の問い」に対し、プロフェッショナルな視点から講評をいただきます。</p>`
+                },
+                {
+                    id: 5,
+                    date: "2026.02.28",
+                    category: "recruit",
+                    title: "【在校生向け】当日ボランティアスタッフ追加募集",
+                    summary: "当日の案内誘導、受付、清掃などを担当するボランティアスタッフを追加募集します。フェスタを裏側から支えてみませんか？",
+                    content: `<p>予想以上の来場登録をいただいているため、当日の運営スタッフを追加募集します。</p>
+                              <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li><strong>募集人数：</strong> 20名</li>
+                                <li><strong>業務内容：</strong> 受付補助、会場誘導、エコステーション管理</li>
+                                <li><strong>応募締切：</strong> 3月5日（木） 17:00まで</li>
+                              </ul>
+                              <p class="mt-4">生徒会室前のボックスに応募用紙を提出してください。</p>`
+                },
+                {
+                    id: 6,
+                    date: "2026.02.20",
+                    category: "info",
+                    title: "キッチンカー出店店舗一覧を公開",
+                    summary: "ランチタイムを彩るキッチンカーのラインナップが決定。定番のクレープから本格カレーまで、多彩なグルメが集結します。",
+                    content: `<p>今年のProject Festaには、過去最多となる8台のキッチンカーが集結します！</p>
+                              <p>売り切れ必至の人気店も登場。出店場所はグラウンド横の「フードトラック村」です。</p>
+                              <p class="mt-2 text-sm text-gray-500">※支払いは交通系ICカードまたは現金のみとなります。</p>`
+                },
+                {
+                    id: 7,
+                    date: "2026.02.15",
+                    category: "info",
+                    title: "公式サイトをリニューアルオープンしました",
+                    summary: "Project Festa 2026 公式サイトを公開しました。「Sharing dreams」をテーマに、最新情報を随時発信していきます。",
+                    content: `<p>Project Festa 2026の公式サイトへようこそ。</p>
+                              <p>今年のテーマカラーであるブルー、イエロー、レッド、グリーンを基調にデザインを一新しました。</p>
+                              <p>スケジュールやみどころ情報は順次更新していきますので、ブックマーク登録をお願いいたします。</p>`
+                },
+                {
+                    id: 8,
+                    date: "2026.02.10",
+                    category: "event",
+                    title: "eスポーツ大会のエントリー受付開始",
+                    summary: "クラス対抗eスポーツ大会の参加チーム受付を開始しました。今年は「ロケットリーグ」と「スマブラ」の2タイトルで開催！",
+                    content: `<p>Day 2に行われるeスポーツ大会のエントリーを開始します。</p>
+                              <p>各クラスから代表チームを選出し、トーナメント形式で優勝を争います。決勝戦はサブアリーナの大型スクリーンで実施！</p>
+                              <p>エントリー方法はClassroomのお知らせをご確認ください。</p>`
+                },
+                {
+                    id: 9,
+                    date: "2026.02.01",
+                    category: "recruit",
+                    title: "ステージパフォーマンス出演団体オーディション",
+                    summary: "有志ステージの出演権をかけたオーディションを実施します。ダンス、バンド、お笑いなどジャンルは問いません。",
+                    content: `<p>中庭ステージおよび体育館ステージでのパフォーマンスを希望する有志団体を募集します。</p>
+                              <p>動画審査による一次予選を行い、上位10組が本番のステージに立つことができます。</p>`
+                },
+                {
+                    id: 10,
+                    date: "2026.01.20",
+                    category: "info",
+                    title: "【保護者の皆様へ】参観事前登録のお願い",
+                    summary: "セキュリティ強化のため、保護者の方の参観には事前登録が必要となります。専用フォームより登録をお願いいたします。",
+                    content: `<p>本年度はセキュリティ強化のため、入構証（ネームカード）の発行をデジタル化いたします。</p>
+                              <p>保護者の皆様におかれましては、2月中に配布される保護者メール記載のURLより、事前登録をお願いいたします。</p>`
+                }
+            ];
+
+            const newsContainer = document.getElementById('news-container');
+            const newsCount = document.getElementById('news-count');
+
+            // Category Labels Helper
+            function getCategoryLabel(cat) {
+                switch(cat) {
+                    case 'important': return '<span class="tag-badge tag-important">重要</span>';
+                    case 'event': return '<span class="tag-badge tag-event">イベント</span>';
+                    case 'recruit': return '<span class="tag-badge tag-recruit">募集</span>';
+                    default: return '<span class="tag-badge tag-info">お知らせ</span>';
+                }
+            }
+
+            // Render Function (Simplified: No Filter)
+            function renderNews() {
+                newsContainer.innerHTML = '';
+                newsCount.textContent = `${newsData.length}件`;
+
+                newsData.forEach((item, index) => {
+                    const el = document.createElement('div');
+                    el.className = 'news-item p-6 cursor-pointer group';
+                    el.setAttribute('data-id', item.id);
+                    el.style.animationDelay = `${index * 0.05}s`; // Stagger effect
+                    
+                    el.innerHTML = `
+                        <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
+                            <span class="text-sm text-gray-400 font-mono tracking-wider">${item.date}</span>
+                            ${getCategoryLabel(item.category)}
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-brand-blue transition-colors mb-2">
+                            ${item.title}
+                        </h3>
+                        <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">
+                            ${item.summary}
+                        </p>
+                        <div class="mt-3 text-brand-blue text-xs font-bold opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                            READ MORE <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </div>
+                    `;
+                    
+                    // Click Event for Modal
+                    el.addEventListener('click', () => openModal(item));
+                    newsContainer.appendChild(el);
+                });
+            }
+
+            // Initial Render
+            renderNews();
+
+            /* --- 3. Modal Logic --- */
+            const modal = document.getElementById('news-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDate = document.getElementById('modal-date');
+            const modalTags = document.getElementById('modal-tags');
+            const modalContent = document.getElementById('modal-content');
+            const closeModal = document.getElementById('close-modal');
+
+            function openModal(item) {
+                modalTitle.textContent = item.title;
+                modalDate.textContent = item.date;
+                modalTags.innerHTML = getCategoryLabel(item.category);
+                modalContent.innerHTML = item.content;
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Lock scroll
+            }
+
+            function closeModalFunc() {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Unlock scroll
+            }
+
+            closeModal.addEventListener('click', closeModalFunc);
+            
+            // Close when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModalFunc();
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModalFunc();
+                }
+            });
+
+            /* --- 4. Common UI Logic (Header, Mobile Menu, Scroll Reveal) --- */
+            const header = document.getElementById('main-header');
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            let lastScroll = 0;
+
+            // Scroll Logic
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+
+                if (currentScroll > lastScroll && currentScroll > 200) header.classList.add('hidden-header');
+                else header.classList.remove('hidden-header');
+                lastScroll = currentScroll;
+            });
+
+            // Mobile Menu
+            menuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('open');
+                if (isOpen) {
+                    mobileMenu.classList.remove('open');
+                    menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                } else {
+                    mobileMenu.classList.add('open');
+                    menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                }
+            });
+
+            // Intersection Observer for Reveal
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
