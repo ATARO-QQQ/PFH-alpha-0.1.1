@@ -22,23 +22,26 @@ const sharedNewsData = [
     },
     {
         id: 2,
-        date: "2026.03.14",
-        category: "event",
-        title: "フィナーレのスペシャルゲストが決定しました！",
-        summary: "2日目のグランドフィナーレに登場するスペシャルゲストが決定。卒業生アーティストによる特別ライブも開催されます。",
-        content: `<p>3月18日（水）16:00から行われるグランドフィナーレに、本校卒業生のシンガーソングライター〇〇さんの出演が決定いたしました！</p>
-                  <p>後輩たちの夢を応援するために駆けつけてくれます。当日は生徒とのコラボステージも予定されています。</p>
-                  <div class="bg-gray-100 p-4 rounded mt-4"><strong>出演時間：</strong> 3月18日 16:30頃〜<br><strong>場所：</strong> メインアリーナ</div>`
+        date: "2026.01.21",
+        category: "important",
+        title: "【重要】Project Festa 2026の入場チケットの予約受付を開始しました！",
+        summary: "チケットはご来場に<strong>必ず必要</strong>となります。お早めのご予約を。",
+        content: `<p>保護者の方、外部の方などの、横浜創英中学・高等学校に所属している方以外の皆様は、入場のためにデジタルチケットが必要となります。</p>
+                  <p>公開されたPeatixのサイトを用いてチケットを各自ご用意ください。</p>
+                  <div class="bg-gray-100 p-4 rounded mt-4"><strong>リンク：</strong> https://xxxxxxxxxxxxx.com/</strong></div>`
     },
 　  {
         id: 3,
-        date: "2026.03.10",
+        date: "2026.01.21",
         category: "info",
-        title: "デジタルパンフレットの配布を開始しました",
+        title: "キッチンカーの誘致が決定いたしました",
         summary: "当日のプログラム詳細や会場マップを掲載したデジタルパンフレットがダウンロード可能です。スマートフォンで手軽にご確認いただけます。",
-        content: `<p>環境配慮の観点から、紙のパンフレットを削減し、デジタルパンフレットを導入しています。</p>
-                  <p>以下のリンクよりPDFデータをダウンロードしてご利用ください。会場内にはQRコードも掲示いたします。</p>
-                  <p class="mt-4"><a href="#" class="text-brand-blue underline font-bold">👉 デジタルパンフレットをダウンロード (PDF: 5MB)</a></p>`
+        content: `<p>Project Festa 2026にご来場いただく皆様へ、当日のスムーズな入場と安全確保のため、以下の点についてご協力をお願い申し上げます。</p>
+                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-gray pl-2">様々な屋台が集結！</h4>
+                  <p>中学生の発案で着々と計画を進めていたキッチンカーの誘致が実現しました。<br>
+                  フェスタの開始から終了まで、皆様の知的好奇心だけでなく<strong>おなかも舌も満足</strong>させる企画がてんこ盛りです！<strong>一号館裏へレッツゴー‼</strong></p>
+                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-gray pl-2">出店店舗と時間帯について</h4>
+                  <p>出店店舗は<strong>&me…</strong>、<strong>キッチンカーKI KI</strong>、<strong>HIDAMARI -waffle-</strong>、<strong>773crepe</strong>の四つです。そのうち &me… は一日目、 キッチンカーKI KI は二日目のみの営業となります。ご了承ください。</p>``
     },
     {
         id: 4,
