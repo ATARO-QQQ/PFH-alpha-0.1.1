@@ -19,8 +19,6 @@ const sharedNewsData = [
                   また、入場の際にはオンラインチケットの提示が必要となっております。入場ゲートは大変混雑いたしますので、事前にチケットの画面を準備してお並びください。</p>
                   <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">体育館入場について</h4>
                   <p>セレモニーを行う体育館には<strong>外履きで入場することができません</strong>。必ず<strong>上履きやスリッパなどとそれを携帯する袋を持参</strong>し、スムーズに楽しくイベントをお楽しみください。</p>`
-                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">感染症対策</h4>
-                  <p>非常に多くの人が密集する当イベントでは、感染症のリスクが必然的に上がります。各自対策をしてご来場ください。</p>`
     },
     {
         id: 2,
