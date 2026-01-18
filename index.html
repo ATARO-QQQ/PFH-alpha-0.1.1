@@ -286,7 +286,7 @@
                         <span class="w-2 h-8 bg-brand-yellow inline-block"></span>
                         INFORMATION
                     </h2>
-                    <a href="./information.html" class="text-sm font-bold text-brand-yellow hover:text-white transition-colors mt-2 md:mt-0 flex items-center gap-2">
+                    <a href="/information/" class="text-sm font-bold text-brand-yellow hover:text-white transition-colors mt-2 md:mt-0 flex items-center gap-2">
                         一覧を見る <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -536,7 +536,7 @@
     </footer>
 
     <!-- 共通ニュースデータ読み込み (必ずmain scriptの前) -->
-    <script src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/news_data.js"></script>
+    <script src="news_data.js"></script>
 
     <!-- JavaScript for Interactivity -->
     <script>
@@ -639,10 +639,9 @@
                     // リスト項目のスタイル (スズキ風: 日付、ラベル、タイトルの順)
                     row.className = 'group flex flex-col md:flex-row md:items-center gap-2 md:gap-6 py-2 border-b border-gray-700 last:border-0 hover:bg-white/5 transition-colors cursor-pointer px-2';
                     
-                    // リンク先はinformation.htmlの該当ID（ページ内リンクの実装が必要だが今回はページ遷移のみ）
-                    // 本格的にやるなら information.html?id=1 のようにパラメータを渡す
+                    // リンク先は /information/?id=XX (ディレクトリ指定とパラメータ付与)
                     row.onclick = () => {
-                        window.location.href = `./information.html`;
+                        window.location.href = `/information/?id=${item.id}`;
                     };
 
                     row.innerHTML = `
