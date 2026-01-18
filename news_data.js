@@ -1,49 +1,53 @@
 /**
  * Project Festa 2026 共通ニュースデータ
- * このファイルのデータを編集すると、
+ * * このファイルのデータを編集すると、
  * トップページ(index.html)とお知らせページ(information.html)の両方に反映されます。
- * ご情報を撒かないように、メディアには気を付けて投稿してください。
- * 仲良く使ってね～
  */
+
 const sharedNewsData = [
     {
         id: 1,
-        date: "2026.01.21",
+        date: "2026.03.15",
         category: "important",
-        title: "【重要】当日の来場について",
-        summary: "Project Festa 2026へのご来場に関する重要なお知らせです。入場方法、持ち物と感染症対策についてご確認ください。",
+        title: "【重要】当日の来場方法と感染症対策について",
+        summary: "Project Festa 2026へのご来場に関する重要なお知らせです。入場ゲートの場所変更とマスク着用推奨エリアについてご確認ください。",
         content: `<p>Project Festa 2026にご来場いただく皆様へ、当日のスムーズな入場と安全確保のため、以下の点についてご協力をお願い申し上げます。</p>
-                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">入場方法について</h4>
-                  <p>スムーズな進行のため、<strong>一般来場者様は「正門」からのご入場</strong>をお願いいたします。南門は関係者専用となりますのでご注意ください。<br>
-                  また、入場の際にはオンラインチケットの提示が必要となっております。入場ゲートは大変混雑いたしますので、事前にチケットの画面を準備してお並びください。</p>
-                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">体育館について</h4>
-                  <p>セレモニーを行う体育館には<strong>外履きで入場することができません</strong>。必ず<strong>上履きやスリッパなどとそれを携帯する袋を持参</strong>し、スムーズに楽しくイベントをお楽しみください。</p>`
+                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">入場ゲートについて</h4>
+                  <p>混雑緩和のため、<strong>一般来場者様は「西門」からのご入場</strong>をお願いいたします。正門は関係者専用となりますのでご注意ください。</p>
+                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">感染症対策</h4>
+                  <p>屋内ステージおよび飲食エリアでは、引き続き手指消毒へのご協力をお願いしております。各会場入り口に消毒液を設置しております。</p>`
     },
     {
         id: 2,
-        date: "2026.01.21",
-        category: "important",
-        title: "【重要】Project Festa 2026の入場チケットの予約受付を開始しました！",
-        summary: "チケットはご来場に<strong>必ず必要</strong>となります。お早めのご予約を。",
-        content: `<p>保護者の方、外部の方などの、横浜創英中学・高等学校に所属している方以外の皆様は、入場のためにデジタルチケットが必要となります。</p>
-                  <p>公開されたPeatixのサイトを用いてチケットを各自ご用意ください。</p>
-                  <div class="bg-gray-100 p-4 rounded mt-4"><strong>リンク：</strong> https://xxxxxxxxxxxxx.com/</div>`
+        date: "2026.03.14",
+        category: "event",
+        title: "フィナーレのスペシャルゲストが決定しました！",
+        summary: "2日目のグランドフィナーレに登場するスペシャルゲストが決定。卒業生アーティストによる特別ライブも開催されます。",
+        content: `<p>3月18日（水）16:00から行われるグランドフィナーレに、本校卒業生のシンガーソングライター〇〇さんの出演が決定いたしました！</p>
+                  <p>後輩たちの夢を応援するために駆けつけてくれます。当日は生徒とのコラボステージも予定されています。</p>
+                  <div class="bg-gray-100 p-4 rounded mt-4"><strong>出演時間：</strong> 3月18日 16:30頃〜<br><strong>場所：</strong> メインアリーナ</div>`
     },
     {
         id: 3,
-        date: "2026.01.21",
+        date: "2026.03.10",
         category: "info",
-        title: "キッチンカーの誘致が決定いたしました",
+        title: "デジタルパンフレットの配布を開始しました",
         summary: "当日のプログラム詳細や会場マップを掲載したデジタルパンフレットがダウンロード可能です。スマートフォンで手軽にご確認いただけます。",
-        content: `<p>Project Festa 2026にご来場いただく皆様へ、当日のスムーズな入場と安全確保のため、以下の点についてご協力をお願い申し上げます。</p>
-                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-gray pl-2">様々な屋台が集結！</h4>
-                  <p>中学生の発案で着々と計画を進めていたキッチンカーの誘致が実現しました。<br>
-                  フェスタの開始から終了まで、皆様の知的好奇心だけでなく<strong>おなかも舌も満足</strong>させる企画がてんこ盛りです！<strong>一号館裏へレッツゴー‼</strong></p>
-                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-gray pl-2">出店店舗と時間帯について</h4>
-                  <p>出店店舗は<strong>&me…</strong>、<strong>キッチンカーKI KI</strong>、<strong>HIDAMARI -waffle-</strong>、<strong>773crepe</strong>の四つです。そのうち &me… は一日目、 キッチンカーKI KI は二日目のみの営業となります。ご了承ください。</p>`
+        content: `<p>環境配慮の観点から、紙のパンフレットを削減し、デジタルパンフレットを導入しています。</p>
+                  <p>以下のリンクよりPDFデータをダウンロードしてご利用ください。会場内にはQRコードも掲示いたします。</p>
+                  <p class="mt-4"><a href="#" class="text-brand-blue underline font-bold">👉 デジタルパンフレットをダウンロード (PDF: 5MB)</a></p>`
     },
     {
         id: 4,
+        date: "2026.03.05",
+        category: "event",
+        title: "高2探究「未来創造プロジェクト」最終プレゼン審査員発表",
+        summary: "高校2年生の探究学習の集大成となるプレゼンテーション。外部審査員として各界の専門家をお招きします。",
+        content: `<p>高校2年生が1年間取り組んできた「未来創造プロジェクト」。その最終プレゼンテーション審査員として、大学教授や企業経営者の方々をお招きします。</p>
+                  <p>生徒たちの「本気の問い」に対し、プロフェッショナルな視点から講評をいただきます。</p>`
+    },
+    {
+        id: 5,
         date: "2026.02.28",
         category: "recruit",
         title: "【在校生向け】当日ボランティアスタッフ追加募集",
@@ -57,7 +61,7 @@ const sharedNewsData = [
                   <p class="mt-4">生徒会室前のボックスに応募用紙を提出してください。</p>`
     },
     {
-        id: 5,
+        id: 6,
         date: "2026.02.20",
         category: "info",
         title: "キッチンカー出店店舗一覧を公開",
@@ -67,7 +71,7 @@ const sharedNewsData = [
                   <p class="mt-2 text-sm text-gray-500">※支払いは交通系ICカードまたは現金のみとなります。</p>`
     },
     {
-        id: 6,
+        id: 7,
         date: "2026.02.15",
         category: "info",
         title: "公式サイトをリニューアルオープンしました",
@@ -77,7 +81,7 @@ const sharedNewsData = [
                   <p>スケジュールやみどころ情報は順次更新していきますので、ブックマーク登録をお願いいたします。</p>`
     },
     {
-        id: 7,
+        id: 8,
         date: "2026.02.10",
         category: "event",
         title: "eスポーツ大会のエントリー受付開始",
@@ -87,7 +91,7 @@ const sharedNewsData = [
                   <p>エントリー方法はClassroomのお知らせをご確認ください。</p>`
     },
     {
-        id: 8,
+        id: 9,
         date: "2026.02.01",
         category: "recruit",
         title: "ステージパフォーマンス出演団体オーディション",
@@ -96,7 +100,7 @@ const sharedNewsData = [
                   <p>動画審査による一次予選を行い、上位10組が本番のステージに立つことができます。</p>`
     },
     {
-        id: 9,
+        id: 10,
         date: "2026.01.20",
         category: "info",
         title: "【保護者の皆様へ】参観事前登録のお願い",
