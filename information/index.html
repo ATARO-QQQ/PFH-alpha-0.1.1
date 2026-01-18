@@ -66,7 +66,6 @@
             }
         }
     </script>
-
     <style>
         /* --- Base Styles --- */
         html, body {
@@ -107,20 +106,6 @@
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        /* --- Text Gradients --- */
-        .text-clip-gradient {
-            background: linear-gradient(90deg, #0057B7, #DD2E44, #FFD700, #009B77);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientMove 8s ease infinite;
-        }
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         /* --- Scroll Animations (Reveal Up) --- */
@@ -258,7 +243,6 @@
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="flex items-center gap-2 group">
-                <!-- 修正箇所: rotate-45を削除し、group-hover:rotate-45を追加 -->
                 <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/logo01.png" 
                      alt="Project Festa Logo" 
                      class="w-10 h-10 md:w-14 md:h-14 transition-transform duration-500 shrink-0 group-hover:scale-110 group-hover:rotate-45 object-contain">
@@ -272,13 +256,11 @@
                 <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/map/" class="hover:text-brand-blue transition-colors py-2 border-b-2 border-transparent hover:border-brand-blue">MAP</a>
                 <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/attractions/" class="hover:text-brand-blue transition-colors py-2 border-b-2 border-transparent hover:border-brand-blue">ATTRACTIONS</a>
             </nav>
-
             <!-- Mobile Menu Button -->
             <button id="menu-btn" class="md:hidden text-2xl focus:outline-none p-2" aria-label="メニューを開く">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-
         <!-- Mobile Nav Menu -->
         <div id="mobile-menu" class="md:hidden bg-white/95 backdrop-blur-md shadow-lg absolute top-full left-0 w-full border-t border-gray-100">
             <nav class="flex flex-col p-4 space-y-4 font-bold text-center">
@@ -294,7 +276,6 @@
 
     <!-- Main Content -->
     <main class="flex-grow pt-24 pb-20 w-full relative">
-
         <!-- Page Title Area -->
         <section class="relative py-12 md:py-20 px-4 text-center overflow-hidden">
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[15vw] md:text-[10vw] font-black text-gray-100 -z-10 select-none whitespace-nowrap">
@@ -321,14 +302,10 @@
                     <span class="font-bold text-gray-500 text-sm">NEWS LIST</span>
                     <span class="text-xs text-gray-400" id="news-count">Loading...</span>
                 </div>
-
                 <!-- News Items Container -->
                 <div id="news-container" class="divide-y divide-gray-100">
                     <!-- Items will be injected here via JavaScript -->
                 </div>
-                
-                <!-- Pagination (Removed as requested) -->
-                
             </div>
         </section>
 
@@ -345,7 +322,6 @@
                  </a>
              </div>
         </section>
-
     </main>
 
     <!-- Footer -->
@@ -357,7 +333,6 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-2 mb-4">
-                         <!-- 修正箇所: rotate-45を削除し、hover:rotate-45を追加 -->
                          <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/logo01.png" 
                               alt="Project Festa Logo" 
                               class="w-8 h-8 shrink-0 object-contain transition-transform duration-500 hover:rotate-45">
@@ -427,117 +402,15 @@
         </div>
     </div>
 
+    <!-- 共通ニュースデータ読み込み (必ずmain scriptの前) -->
+    <script src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/news_data.js"></script>
+
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            /* --- 1. News Data & Rendering --- */
-            const newsData = [
-                {
-                    id: 1,
-                    date: "2026.03.15",
-                    category: "important",
-                    title: "【重要】当日の来場方法と感染症対策について",
-                    summary: "Project Festa 2026へのご来場に関する重要なお知らせです。入場ゲートの場所変更とマスク着用推奨エリアについてご確認ください。",
-                    content: `<p>Project Festa 2026にご来場いただく皆様へ、当日のスムーズな入場と安全確保のため、以下の点についてご協力をお願い申し上げます。</p>
-                              <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">入場ゲートについて</h4>
-                              <p>混雑緩和のため、<strong>一般来場者様は「西門」からのご入場</strong>をお願いいたします。正門は関係者専用となりますのでご注意ください。</p>
-                              <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">感染症対策</h4>
-                              <p>屋内ステージおよび飲食エリアでは、引き続き手指消毒へのご協力をお願いしております。各会場入り口に消毒液を設置しております。</p>`
-                },
-                {
-                    id: 2,
-                    date: "2026.03.14",
-                    category: "event",
-                    title: "フィナーレのスペシャルゲストが決定しました！",
-                    summary: "2日目のグランドフィナーレに登場するスペシャルゲストが決定。卒業生アーティストによる特別ライブも開催されます。",
-                    content: `<p>3月18日（水）16:00から行われるグランドフィナーレに、本校卒業生のシンガーソングライター〇〇さんの出演が決定いたしました！</p>
-                              <p>後輩たちの夢を応援するために駆けつけてくれます。当日は生徒とのコラボステージも予定されています。</p>
-                              <div class="bg-gray-100 p-4 rounded mt-4"><strong>出演時間：</strong> 3月18日 16:30頃〜<br><strong>場所：</strong> メインアリーナ</div>`
-                },
-                {
-                    id: 3,
-                    date: "2026.03.10",
-                    category: "info",
-                    title: "デジタルパンフレットの配布を開始しました",
-                    summary: "当日のプログラム詳細や会場マップを掲載したデジタルパンフレットがダウンロード可能です。スマートフォンで手軽にご確認いただけます。",
-                    content: `<p>環境配慮の観点から、紙のパンフレットを削減し、デジタルパンフレットを導入しています。</p>
-                              <p>以下のリンクよりPDFデータをダウンロードしてご利用ください。会場内にはQRコードも掲示いたします。</p>
-                              <p class="mt-4"><a href="#" class="text-brand-blue underline font-bold">👉 デジタルパンフレットをダウンロード (PDF: 5MB)</a></p>`
-                },
-                {
-                    id: 4,
-                    date: "2026.03.05",
-                    category: "event",
-                    title: "高2探究「未来創造プロジェクト」最終プレゼン審査員発表",
-                    summary: "高校2年生の探究学習の集大成となるプレゼンテーション。外部審査員として各界の専門家をお招きします。",
-                    content: `<p>高校2年生が1年間取り組んできた「未来創造プロジェクト」。その最終プレゼンテーション審査員として、大学教授や企業経営者の方々をお招きします。</p>
-                              <p>生徒たちの「本気の問い」に対し、プロフェッショナルな視点から講評をいただきます。</p>`
-                },
-                {
-                    id: 5,
-                    date: "2026.02.28",
-                    category: "recruit",
-                    title: "【在校生向け】当日ボランティアスタッフ追加募集",
-                    summary: "当日の案内誘導、受付、清掃などを担当するボランティアスタッフを追加募集します。フェスタを裏側から支えてみませんか？",
-                    content: `<p>予想以上の来場登録をいただいているため、当日の運営スタッフを追加募集します。</p>
-                              <ul class="list-disc list-inside mt-2 space-y-1">
-                                <li><strong>募集人数：</strong> 20名</li>
-                                <li><strong>業務内容：</strong> 受付補助、会場誘導、エコステーション管理</li>
-                                <li><strong>応募締切：</strong> 3月5日（木） 17:00まで</li>
-                              </ul>
-                              <p class="mt-4">生徒会室前のボックスに応募用紙を提出してください。</p>`
-                },
-                {
-                    id: 6,
-                    date: "2026.02.20",
-                    category: "info",
-                    title: "キッチンカー出店店舗一覧を公開",
-                    summary: "ランチタイムを彩るキッチンカーのラインナップが決定。定番のクレープから本格カレーまで、多彩なグルメが集結します。",
-                    content: `<p>今年のProject Festaには、過去最多となる8台のキッチンカーが集結します！</p>
-                              <p>売り切れ必至の人気店も登場。出店場所はグラウンド横の「フードトラック村」です。</p>
-                              <p class="mt-2 text-sm text-gray-500">※支払いは交通系ICカードまたは現金のみとなります。</p>`
-                },
-                {
-                    id: 7,
-                    date: "2026.02.15",
-                    category: "info",
-                    title: "公式サイトをリニューアルオープンしました",
-                    summary: "Project Festa 2026 公式サイトを公開しました。「Sharing dreams」をテーマに、最新情報を随時発信していきます。",
-                    content: `<p>Project Festa 2026の公式サイトへようこそ。</p>
-                              <p>今年のテーマカラーであるブルー、イエロー、レッド、グリーンを基調にデザインを一新しました。</p>
-                              <p>スケジュールやみどころ情報は順次更新していきますので、ブックマーク登録をお願いいたします。</p>`
-                },
-                {
-                    id: 8,
-                    date: "2026.02.10",
-                    category: "event",
-                    title: "eスポーツ大会のエントリー受付開始",
-                    summary: "クラス対抗eスポーツ大会の参加チーム受付を開始しました。今年は「ロケットリーグ」と「スマブラ」の2タイトルで開催！",
-                    content: `<p>Day 2に行われるeスポーツ大会のエントリーを開始します。</p>
-                              <p>各クラスから代表チームを選出し、トーナメント形式で優勝を争います。決勝戦はサブアリーナの大型スクリーンで実施！</p>
-                              <p>エントリー方法はClassroomのお知らせをご確認ください。</p>`
-                },
-                {
-                    id: 9,
-                    date: "2026.02.01",
-                    category: "recruit",
-                    title: "ステージパフォーマンス出演団体オーディション",
-                    summary: "有志ステージの出演権をかけたオーディションを実施します。ダンス、バンド、お笑いなどジャンルは問いません。",
-                    content: `<p>中庭ステージおよび体育館ステージでのパフォーマンスを希望する有志団体を募集します。</p>
-                              <p>動画審査による一次予選を行い、上位10組が本番のステージに立つことができます。</p>`
-                },
-                {
-                    id: 10,
-                    date: "2026.01.20",
-                    category: "info",
-                    title: "【保護者の皆様へ】参観事前登録のお願い",
-                    summary: "セキュリティ強化のため、保護者の方の参観には事前登録が必要となります。専用フォームより登録をお願いいたします。",
-                    content: `<p>本年度はセキュリティ強化のため、入構証（ネームカード）の発行をデジタル化いたします。</p>
-                              <p>保護者の皆様におかれましては、2月中に配布される保護者メール記載のURLより、事前登録をお願いいたします。</p>`
-                }
-            ];
-
+            /* --- 1. News Data & Rendering (Modified to use sharedNewsData) --- */
+            
             const newsContainer = document.getElementById('news-container');
             const newsCount = document.getElementById('news-count');
 
@@ -551,12 +424,18 @@
                 }
             }
 
-            // Render Function (Simplified: No Filter)
+            // Render Function
             function renderNews() {
-                newsContainer.innerHTML = '';
-                newsCount.textContent = `${newsData.length}件`;
+                // sharedNewsData が読み込まれているか確認
+                if (typeof sharedNewsData === 'undefined') {
+                    newsContainer.innerHTML = '<p class="p-6 text-red-500">ニュースデータを読み込めませんでした。news_data.jsを確認してください。</p>';
+                    return;
+                }
 
-                newsData.forEach((item, index) => {
+                newsContainer.innerHTML = '';
+                newsCount.textContent = `${sharedNewsData.length}件`;
+
+                sharedNewsData.forEach((item, index) => {
                     const el = document.createElement('div');
                     el.className = 'news-item p-6 cursor-pointer group';
                     el.setAttribute('data-id', item.id);
@@ -635,7 +514,6 @@
                 const currentScroll = window.pageYOffset;
                 if (currentScroll > 50) header.classList.add('scrolled');
                 else header.classList.remove('scrolled');
-
                 if (currentScroll > lastScroll && currentScroll > 200) header.classList.add('hidden-header');
                 else header.classList.remove('hidden-header');
                 lastScroll = currentScroll;
