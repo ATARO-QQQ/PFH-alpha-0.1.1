@@ -17,7 +17,7 @@ const sharedNewsData = [
                   <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">入場方法について</h4>
                   <p>スムーズな進行のため、<strong>一般来場者様は「正門」からのご入場</strong>をお願いいたします。南門は関係者専用となりますのでご注意ください。<br>
                   また、入場の際にはオンラインチケットの提示が必要となっております。入場ゲートは大変混雑いたしますので、事前にチケットの画面を準備してお並びください。</p>
-                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">体育館入場について</h4>
+                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">体育館について</h4>
                   <p>セレモニーを行う体育館には<strong>外履きで入場することができません</strong>。必ず<strong>上履きやスリッパなどとそれを携帯する袋を持参</strong>し、スムーズに楽しくイベントをお楽しみください。</p>`
     },
     {
