@@ -403,7 +403,7 @@
     </div>
 
     <!-- 共通ニュースデータ読み込み (必ずmain scriptの前) -->
-    <script src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/news_data.js"></script>
+    <script src="news_data.js"></script>
 
     <!-- JavaScript -->
     <script>
@@ -542,6 +542,20 @@
             }, { threshold: 0.1 });
             
             document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+            // --- 追加機能: URLパラメータからの自動オープン ---
+            // トップページなどから ?id=XX で来た場合にその記事を開く
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetId = urlParams.get('id');
+            if (targetId && typeof sharedNewsData !== 'undefined') {
+                const targetItem = sharedNewsData.find(item => item.id == targetId);
+                if (targetItem) {
+                    // 少し遅延させて自然に見せる（レンダリング待ち含む）
+                    setTimeout(() => {
+                        openModal(targetItem);
+                    }, 100);
+                }
+            }
         });
     </script>
 </body>
