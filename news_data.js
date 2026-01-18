@@ -2,20 +2,25 @@
  * Project Festa 2026 共通ニュースデータ
  * * このファイルのデータを編集すると、
  * トップページ(index.html)とお知らせページ(information.html)の両方に反映されます。
+ * ご情報を撒かないように、メディアには気を付けて投稿してください。
+ * 仲良く使ってね～
  */
 
 const sharedNewsData = [
     {
         id: 1,
-        date: "2026.03.15",
+        date: "2026.01.21",
         category: "important",
-        title: "【重要】当日の来場方法と感染症対策について",
-        summary: "Project Festa 2026へのご来場に関する重要なお知らせです。入場ゲートの場所変更とマスク着用推奨エリアについてご確認ください。",
+        title: "【重要】当日の来場について",
+        summary: "Project Festa 2026へのご来場に関する重要なお知らせです。入場方法、持ち物と感染症対策についてご確認ください。",
         content: `<p>Project Festa 2026にご来場いただく皆様へ、当日のスムーズな入場と安全確保のため、以下の点についてご協力をお願い申し上げます。</p>
-                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">入場ゲートについて</h4>
-                  <p>混雑緩和のため、<strong>一般来場者様は「西門」からのご入場</strong>をお願いいたします。正門は関係者専用となりますのでご注意ください。</p>
+                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">入場方法について</h4>
+                  <p>スムーズな進行のため、<strong>一般来場者様は「正門」からのご入場</strong>をお願いいたします。南門は関係者専用となりますのでご注意ください。<br>
+                  また、入場の際にはオンラインチケットの提示が必要となっております。入場ゲートは大変混雑いたしますので、事前にチケットの画面を準備してお並びください。</p>
+                  <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">体育館入場について</h4>
+                  <p>セレモニーを行う体育館には<strong>外履きで入場することができません</strong>。必ず<strong>上履きやスリッパなどとそれを携帯する袋を持参</strong>し、スムーズに楽しくイベントをお楽しみください。</p>`
                   <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-red pl-2">感染症対策</h4>
-                  <p>屋内ステージおよび飲食エリアでは、引き続き手指消毒へのご協力をお願いしております。各会場入り口に消毒液を設置しております。</p>`
+                  <p>非常に多くの人が密集する当イベントでは、感染症のリスクが必然的に上がります。各自対策をしてご来場ください。</p>`
     },
     {
         id: 2,
@@ -27,7 +32,7 @@ const sharedNewsData = [
                   <p>後輩たちの夢を応援するために駆けつけてくれます。当日は生徒とのコラボステージも予定されています。</p>
                   <div class="bg-gray-100 p-4 rounded mt-4"><strong>出演時間：</strong> 3月18日 16:30頃〜<br><strong>場所：</strong> メインアリーナ</div>`
     },
-    {
+　  {
         id: 3,
         date: "2026.03.10",
         category: "info",
