@@ -33,7 +33,7 @@ const sharedNewsData = [
         id: 3,
         date: "2026.01.21",
         category: "info",
-        title: "キッチンカーの誘致が決定いたしました",
+        title: "キッチンカーの誘致決定！",
         summary: "当日のプログラム詳細や会場マップを掲載したデジタルパンフレットがダウンロード可能です。スマートフォンで手軽にご確認いただけます。",
         content: `<p>Project Festa 2026にご来場いただく皆様へ、当日のスムーズな入場と安全確保のため、以下の点についてご協力をお願い申し上げます。</p>
                   <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-gray pl-2">様々な屋台が集結！</h4>
