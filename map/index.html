@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link rel="icon" href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/favicon01.ico" />
-
     <title>会場マップ | Yokohama-SOEI Project Festa 2026</title>
 
     <!-- SEO Meta Tags -->
@@ -61,7 +60,6 @@
             }
         }
     </script>
-
     <style>
         /* Base Styles */
         html, body {
@@ -123,6 +121,7 @@
             -webkit-text-fill-color: transparent;
             animation: gradientMove 8s ease infinite;
         }
+
         @keyframes gradientMove {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -136,140 +135,18 @@
             border: 1px solid #e2e8f0;
             border-radius: 1rem;
             position: relative;
-            height: 80vh;
-            min-height: 600px;
-            cursor: grab;
+            height: 60vh; /* 高さ調整 */
+            min-height: 400px;
+            /* cursor: grab; removed for coming soon */
             touch-action: none;
             box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
-        }
-        .map-viewport:active { cursor: grabbing; }
-
-        .map-canvas {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform-origin: center;
-            transition: transform 0.1s ease-out;
-            
-            /* Canvas Size & Layout */
-            width: 1400px; /* 広めに確保 */
-            padding: 80px;
+            /* Center content */
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            gap: 60px; /* 建物間の隙間 */
-        }
-
-        /* Building Blocks */
-        .building {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            background: rgba(255,255,255,0.6);
-            padding: 24px;
-            border-radius: 16px;
-            border: 2px dashed #cbd5e1;
-            position: relative;
-        }
-        .building-title {
-            text-align: center;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: #334155;
-            padding-bottom: 12px;
-            border-bottom: 3px solid #e2e8f0;
-            margin-bottom: 8px;
-        }
-        
-        /* Floor Block */
-        .floor {
-            background: white;
-            border: 2px solid #cbd5e1;
-            border-radius: 8px;
-            padding: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            position: relative;
-            min-height: 100px;
-        }
-        .floor-label {
-            position: absolute;
-            top: -12px;
-            left: 12px;
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 3px 12px;
-            border-radius: 4px;
-            z-index: 5;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Room Grids */
-        .room-grid {
-            display: grid;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        /* 本館: 8教室/フロア (4x2) */
-        .grid-honkan {
-            grid-template-columns: repeat(4, 75px);
-            grid-template-rows: repeat(2, 55px);
-        }
-        /* 1号館: 13教室/フロア (5列) */
-        .grid-ichigo {
-            grid-template-columns: repeat(5, 75px);
-            grid-auto-rows: 55px;
-        }
-        /* ホールなど */
-        .grid-hall {
-            grid-template-columns: 1fr;
-            width: 100%;
-        }
-
-        /* Room Item */
-        .room {
-            background-color: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #475569;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            text-align: center;
-            line-height: 1.2;
-            overflow: hidden;
-            height: 100%;
-            user-select: none;
         }
-        .room:hover {
-            transform: scale(1.1);
-            z-index: 10;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.15);
-            border-color: transparent;
-            color: white;
-        }
+        /* .map-viewport:active { cursor: grabbing; } removed */
 
-        /* Color Coding */
-        .room[data-type="h2"] { border-left: 4px solid #0057B7; } /* 高2 (Blue) */
-        .room[data-type="h2"]:hover { background-color: #0057B7; }
-
-        .room[data-type="science"] { border-left: 4px solid #475569; } /* Science (Gray) */
-        .room[data-type="science"]:hover { background-color: #475569; }
-
-        .room[data-type="global"] { border-left: 4px solid #009B77; background-color: #ecfdf5; } /* Global (Green) */
-        .room[data-type="global"]:hover { background-color: #009B77; }
-
-        .room[data-type="ceremony"] { border-left: 4px solid #DD2E44; background-color: #fef2f2; } /* Ceremony (Red) */
-        .room[data-type="ceremony"]:hover { background-color: #DD2E44; }
-
-        /* Special Room Sizes */
-        .room.large { grid-column: span 2; }
-        .room.full { grid-column: 1 / -1; height: 100px; font-size: 1.1rem; }
-        
         /* Modal Styles */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -338,7 +215,6 @@
             
             <!-- Logo -->
             <a href="https://ataro-qqq.github.io/PFH-alpha-0.1.1/" class="flex items-center gap-2 group">
-                <!-- 修正箇所: rotate-45を削除し、group-hover:rotate-45を追加 -->
                 <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/logo01.png" 
                      alt="Project Festa Logo" 
                      class="w-10 h-10 md:w-14 md:h-14 transition-transform duration-500 shrink-0 group-hover:scale-110 group-hover:rotate-45 object-contain">
@@ -373,7 +249,6 @@
 </header>
 
 <main class="flex-grow pt-24 pb-12 w-full">
-
     <!-- Page Title Area -->
     <section class="relative py-12 md:py-20 px-4 text-center overflow-hidden">
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[15vw] md:text-[10vw] font-black text-gray-100 -z-10 select-none whitespace-nowrap">
@@ -392,10 +267,12 @@
         </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Map Section (COMING SOON MODE) -->
     <section class="py-8 px-4">
         <div class="container mx-auto">
-            <!-- Controls -->
+            
+            <!-- Controls (Hidden for coming soon) -->
+            <!-- 
             <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-4 reveal-up">
                 <div class="text-sm text-gray-600 font-bold bg-gray-100 px-4 py-2 rounded-full">
                     <i class="fa-solid fa-hand-pointer mr-2 text-brand-blue"></i>ドラッグで移動 / 教室をタップ
@@ -406,159 +283,55 @@
                     <button id="reset-map" class="px-4 h-10 bg-white border rounded shadow hover:bg-gray-50 font-bold text-sm text-gray-600 transition-colors">RESET</button>
                 </div>
             </div>
+            -->
 
-            <!-- Canvas Viewport -->
+            <!-- Canvas Viewport (Replaced Content for Coming Soon) -->
             <div class="map-viewport reveal-up" id="map-viewport">
-                <div class="map-canvas" id="map-canvas">
+                <!-- Coming Soon Display -->
+                <div class="text-center p-8 max-w-md mx-auto">
+                    <div class="mb-8 relative inline-flex justify-center items-center">
+                        <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-map-location-dot text-5xl text-gray-300"></i>
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 bg-white rounded-full p-2 shadow-md">
+                            <i class="fa-solid fa-person-digging text-2xl text-brand-blue animate-bounce"></i>
+                        </div>
+                    </div>
                     
-                    <!-- ■ 本館 (Left Column) -->
-                    <div class="building" style="width: 380px;">
-                        <div class="building-title">本館 <span class="text-sm font-normal text-gray-500 ml-2">Main Building</span></div>
-                        
-                        <!-- 4F -->
-                        <div class="floor mb-6">
-                            <span class="floor-label bg-brand-blue">4F</span>
-                            <div class="room-grid grid-honkan">
-                                <!-- 8 classrooms: High School 2nd Year -->
-                                <div class="room" data-type="h2" data-room="2-1">2-C</div>
-                                <div class="room" data-type="h2" data-room="2-2">2-D</div>
-                                <div class="room" data-type="h2" data-room="2-3">2-E</div>
-                                <div class="room" data-type="h2" data-room="2-4">特１</div>
-                                <div class="room" data-type="h2" data-room="2-5">3-A</div>
-                                <div class="room" data-type="h2" data-room="2-6">3-B</div>
-                                <div class="room" data-type="h2" data-room="2-7">3-C</div>
-                                <div class="room" data-type="h2" data-room="2-8">3-D</div>
-                            </div>
-                        </div>
-
-                        <!-- 3F -->
-                        <div class="floor mb-6">
-                            <span class="floor-label bg-brand-blue">3F</span>
-                            <div class="room-grid grid-honkan">
-                                <!-- 8 classrooms: High School 2nd Year -->
-                                <div class="room" data-type="h2" data-room="2-9">1-A</div>
-                                <div class="room" data-type="h2" data-room="2-10">1-B</div>
-                                <div class="room" data-type="h2" data-room="2-11">1-C</div>
-                                <div class="room" data-type="h2" data-room="2-12">1-D</div>
-                                <div class="room" data-type="h2" data-room="2-A">1-E</div>
-                                <div class="room" data-type="h2" data-room="2-B">特２</div>
-                                <div class="room" data-type="h2" data-room="2-C">2-A</div>
-                                <div class="room" data-type="h2" data-room="2-D">2-B</div>
-                            </div>
-                        </div>
-
-                        <!-- 2F (Hall) -->
-                        <div class="floor">
-                            <span class="floor-label bg-brand-green">2F</span>
-                            <div class="room-grid grid-hall">
-                                <div class="room full" data-type="global" data-room="SOEI Hall">
-                                    <div class="flex flex-col">
-                                        <span class="text-lg"><i class="fa-solid fa-earth-asia mr-2"></i>SOEI ホール</span>
-                                        <span class="text-xs font-normal text-green-700 mt-1">グローバル・ステージ発表</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <h3 class="text-2xl font-black text-gray-700 mb-3 tracking-tight">
+                        MAP COMING SOON
+                    </h3>
+                    
+                    <p class="text-gray-500 font-medium leading-relaxed">
+                        会場マップは現在準備中です。<br>
+                        当日の詳細な配置図は、開催直前に公開予定です。<br>
+                        もうしばらくお待ちください。
+                    </p>
+                    
+                    <div class="mt-8 flex justify-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+                        <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse delay-75"></span>
+                        <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse delay-150"></span>
                     </div>
-
-                    <!-- ■ 1号館 (Center Column) -->
-                    <div class="building" style="width: 480px;">
-                        <div class="building-title">1号館 <span class="text-sm font-normal text-gray-500 ml-2">Building 1</span></div>
-
-                        <!-- 3F -->
-                        <div class="floor mb-6">
-                            <span class="floor-label bg-gray-600">3F</span>
-                            <div class="room-grid grid-ichigo">
-                                <!-- 13 classrooms: Science Course -->
-                                <div class="room" data-type="science" data-room="S3-1">2-1</div>
-                                <div class="room" data-type="science" data-room="S3-2">2-2</div>
-                                <div class="room" data-type="science" data-room="S3-3">2-7</div>
-                                <div class="room" data-type="science" data-room="S3-4">3-1</div>
-                                <div class="room" data-type="science" data-room="S3-5">3-2</div>
-                                <div class="room" data-type="science" data-room="S3-6">3-3</div>
-                                <div class="room" data-type="science" data-room="S3-7">3-5</div>
-                                <div class="room" data-type="science" data-room="S3-8">3-6</div>
-                                <div class="room" data-type="science" data-room="S3-9">3-7</div>
-                                <div class="room" data-type="science" data-room="S3-10">3-8</div>
-                                <div class="room" data-type="science" data-room="S3-11">3-9</div>
-                                <div class="room" data-type="science" data-room="S3-12">3-10</div>
-                                <div class="room" data-type="science" data-room="S3-13">3-11</div>
-                            </div>
-                        </div>
-
-                        <!-- 2F -->
-                        <div class="floor mb-6">
-                            <span class="floor-label bg-gray-600">2F</span>
-                            <div class="room-grid grid-ichigo">
-                                <!-- 13 classrooms: Science Course -->
-                                <div class="room" data-type="science" data-room="S2-1">1-1</div>
-                                <div class="room" data-type="science" data-room="S2-2">1-2</div>
-                                <div class="room" data-type="science" data-room="S2-3">1-3</div>
-                                <div class="room" data-type="science" data-room="S2-4">1-4</div>
-                                <div class="room" data-type="science" data-room="S2-5">1-5</div>
-                                <div class="room" data-type="science" data-room="S2-6">1-6</div>
-                                <div class="room" data-type="science" data-room="S2-7">1-7</div>
-                                <div class="room" data-type="science" data-room="S2-8">1-8</div>
-                                <div class="room" data-type="science" data-room="S2-9">1-9</div>
-                                <div class="room" data-type="science" data-room="S2-10">2-3</div>
-                                <div class="room" data-type="science" data-room="S2-11">2-4</div>
-                                <div class="room" data-type="science" data-room="S2-12">2-5</div>
-                                <div class="room" data-type="science" data-room="S2-13">2-6</div>
-                            </div>
-                        </div>
-
-                        <!-- 1F (Halls) -->
-                        <div class="floor">
-                            <span class="floor-label bg-brand-green">1F</span>
-                            <div class="grid grid-cols-2 gap-3 mt-3">
-                                <div class="room" style="height: 90px; background-color: #ecfdf5; color: #009B77;" data-type="global" data-room="Freesia Hall">
-                                    <div class="flex flex-col">
-                                        <i class="fa-solid fa-leaf text-xl mb-1"></i>
-                                        <span>フリージア<br>ホール</span>
-                                    </div>
-                                </div>
-                                <div class="room" style="height: 90px; background-color: #ecfdf5; color: #009B77;" data-type="global" data-room="Green Hall">
-                                    <div class="flex flex-col">
-                                        <i class="fa-solid fa-tree text-xl mb-1"></i>
-                                        <span>グリーン<br>ホール</span>
-                                    </div>
-                                </div>
-                                <div class="room col-span-2" style="height: 70px; background-color: #ecfdf5; color: #009B77;" data-type="global" data-room="Media Center">
-                                    <i class="fa-solid fa-book-open mr-2"></i>メディアセンター
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ■ 体育館 (Right Column) -->
-                    <div class="building" style="width: 280px;">
-                        <div class="building-title">体育館 <span class="text-sm font-normal text-gray-500 ml-2">Gymnasium</span></div>
-                        
-                        <!-- 2F -->
-                        <div class="floor" style="border-color: #DD2E44;">
-                            <span class="floor-label bg-brand-red">2F</span>
-                            <div class="room-grid grid-hall">
-                                <div class="room full" style="height: 180px; background-color: #fef2f2; color: #DD2E44;" data-type="ceremony" data-room="Main Arena">
-                                    <div class="flex flex-col items-center">
-                                        <i class="fa-solid fa-trophy text-4xl mb-3 animate-pulse"></i>
-                                        <span class="text-xl font-bold">メインアリーナ</span>
-                                        <div class="w-12 h-1 bg-brand-red/20 my-2 rounded"></div>
-                                        <span class="text-sm">セレモニー会場</span>
-                                        <span class="text-sm">優秀者発表</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- Original Map Canvas (Commented out) -->
+                <!--
+                <div class="map-canvas" id="map-canvas">
+                    ... (Map content hidden) ...
+                </div>
+                -->
             </div>
             
+            <!-- Legend (Hidden for coming soon) -->
+            <!--
             <p class="text-right text-xs text-gray-400 mt-2">* マップの配置は概略です。</p>
+            -->
         </div>
     </section>
 
-    <!-- Legend -->
+    <!-- Legend Section (Hidden for coming soon) -->
+    <!--
     <section class="container mx-auto px-4 mb-16 reveal-up">
         <div class="flex flex-wrap justify-center gap-4 text-sm font-medium bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
             <div class="flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-lg">
@@ -579,6 +352,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- Access -->
     <section class="py-16 md:py-24 bg-gray-50 relative overflow-hidden">
@@ -623,7 +397,6 @@
                         </div>
                         <p class="text-xs text-gray-400 mt-6"><i class="fa-solid fa-triangle-exclamation mr-1"></i>駐車場はございません。公共交通機関をご利用ください。</p>
                     </div>
-
                     <!-- Google Map -->
                     <div class="md:w-7/12">
                         <div class="gmap-responsive bg-gray-200">
@@ -640,7 +413,6 @@
             </div>
         </div>
     </section>
-
 </main>
 
 <!-- Footer -->
@@ -651,7 +423,6 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-2 mb-4">
-                         <!-- 修正箇所: rotate-45を削除し、hover:rotate-45を追加 -->
                          <img src="https://ataro-qqq.github.io/PFH-alpha-0.1.1/figure/logo01.png" 
                               alt="Project Festa Logo" 
                               class="w-8 h-8 shrink-0 object-contain transition-transform duration-500 hover:rotate-45">
@@ -702,7 +473,7 @@
     </div>  
 </footer>
 
-<!-- Detail Modal -->
+<!-- Detail Modal (Still present but inactive) -->
 <div id="room-modal" class="modal-overlay">
     <div class="modal-content">
         <!-- Modal Header -->
@@ -735,18 +506,15 @@
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
-
             if (window.scrollY > lastScrollY && window.scrollY > 200) header.classList.add('hidden-header');
             else header.classList.remove('hidden-header');
             lastScrollY = window.scrollY;
         });
-
         // Mobile Menu
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
             menuBtn.innerHTML = mobileMenu.classList.contains('open') ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
         });
-
         // Scroll Reveal
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -761,182 +529,191 @@
         /* --- 2. Map Logic (Zoom & Pan) --- */
         const viewport = document.getElementById('map-viewport');
         const canvas = document.getElementById('map-canvas');
-        let scale = 0.9, panX = 0, panY = 0;
-        let isDragging = false, startX, startY;
 
-        function updateTransform() {
-            canvas.style.transform = `translate(calc(-50% + ${panX}px), calc(-50% + ${panY}px)) scale(${scale})`;
-        }
-        
-        // Init
-        updateTransform();
+        // Check if map exists before initializing logic (Guard clause for Coming Soon mode)
+        if (canvas) {
+            let scale = 0.9, panX = 0, panY = 0;
+            let isDragging = false, startX, startY;
 
-        // Buttons
-        document.getElementById('zoom-in').onclick = () => { scale = Math.min(scale + 0.1, 2.0); updateTransform(); };
-        document.getElementById('zoom-out').onclick = () => { scale = Math.max(scale - 0.1, 0.4); updateTransform(); };
-        document.getElementById('reset-map').onclick = () => { scale = 0.9; panX = 0; panY = 0; updateTransform(); };
-
-        // Mouse Drag
-        viewport.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX - panX;
-            startY = e.clientY - panY;
-            viewport.style.cursor = 'grabbing';
-        });
-        window.addEventListener('mouseup', () => { isDragging = false; viewport.style.cursor = 'grab'; });
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            panX = e.clientX - startX;
-            panY = e.clientY - startY;
-            updateTransform();
-        });
-
-        // Touch Drag
-        viewport.addEventListener('touchstart', (e) => {
-            if(e.touches.length === 1) {
-                isDragging = true;
-                startX = e.touches[0].clientX - panX;
-                startY = e.touches[0].clientY - panY;
+            function updateTransform() {
+                canvas.style.transform = `translate(calc(-50% + ${panX}px), calc(-50% + ${panY}px)) scale(${scale})`;
             }
-        });
-        window.addEventListener('touchend', () => { isDragging = false; });
-        window.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            // Prevent page scroll only if desired, but here we let it scroll if vertical
-            panX = e.touches[0].clientX - startX;
-            panY = e.touches[0].clientY - startY;
+            
+            // Init
             updateTransform();
-        });
+
+            // Buttons
+            const btnZoomIn = document.getElementById('zoom-in');
+            const btnZoomOut = document.getElementById('zoom-out');
+            const btnReset = document.getElementById('reset-map');
+
+            if (btnZoomIn) btnZoomIn.onclick = () => { scale = Math.min(scale + 0.1, 2.0); updateTransform(); };
+            if (btnZoomOut) btnZoomOut.onclick = () => { scale = Math.max(scale - 0.1, 0.4); updateTransform(); };
+            if (btnReset) btnReset.onclick = () => { scale = 0.9; panX = 0; panY = 0; updateTransform(); };
+
+            // Mouse Drag
+            viewport.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX - panX;
+                startY = e.clientY - panY;
+                viewport.style.cursor = 'grabbing';
+            });
+            window.addEventListener('mouseup', () => { isDragging = false; viewport.style.cursor = 'grab'; });
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                panX = e.clientX - startX;
+                panY = e.clientY - startY;
+                updateTransform();
+            });
+            // Touch Drag
+            viewport.addEventListener('touchstart', (e) => {
+                if(e.touches.length === 1) {
+                    isDragging = true;
+                    startX = e.touches[0].clientX - panX;
+                    startY = e.touches[0].clientY - panY;
+                }
+            });
+            window.addEventListener('touchend', () => { isDragging = false; });
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                panX = e.touches[0].clientX - startX;
+                panY = e.touches[0].clientY - startY;
+                updateTransform();
+            });
+        }
 
         /* --- 3. Data Generation & Modal --- */
-        const lastNames = ["佐藤", "鈴木", "高橋", "田中", "伊藤", "渡辺", "山本", "中村", "小林", "加藤", "吉田", "山田", "佐々木", "山口", "松本"];
-        const firstNames = ["蓮", "陽翔", "湊", "悠真", "結菜", "陽菜", "莉子", "紬", "颯太", "大翔", "美咲", "花", "太郎", "花子", "健太"];
-        
-        const themesH2 = [
-            "現代文学における「孤独」の表現", "都市緑化計画の変遷と未来", "プラスチックゴミの生分解性研究", 
-            "相対性理論の視覚的アプローチ", "AI生成物の著作権法的課題", "地域おこし協力隊の現状分析", 
-            "音楽療法の可能性", "江戸時代の庶民教育", "スポーツとデータ分析", "心理学から見るマーケティング"
-        ];
-        const themesScience = [
-            "大口川の水質汚染と微生物分布", "モデルロケットの空力特性の最適化", "自律歩行ロボットの障害物回避制御", 
-            "食品添加物の抗酸化作用の比較", "粘菌による迷路解決のシミュレーション", "バイオエタノールの生成効率",
-            "自作望遠鏡による天体観測", "プログラミングによる画像認識"
-        ];
-        const themesGlobal = [
-            "SDGs Goal 4: Quality Education", "Cross-Cultural Communication Styles", 
-            "Environmental Impact of Fast Fashion", "Gender Equality in Japan", "Plastic Free Ocean Project"
-        ];
+        // Only init modal logic if rooms exist
+        const rooms = document.querySelectorAll('.room');
+        if (rooms.length > 0) {
+            const lastNames = ["佐藤", "鈴木", "高橋", "田中", "伊藤", "渡辺", "山本", "中村", "小林", "加藤", "吉田", "山田", "佐々木", "山口", "松本"];
+            const firstNames = ["蓮", "陽翔", "湊", "悠真", "結菜", "陽菜", "莉子", "紬", "颯太", "大翔", "美咲", "花", "太郎", "花子", "健太"];
+            
+            const themesH2 = [
+                "現代文学における「孤独」の表現", "都市緑化計画の変遷と未来", "プラスチックゴミの生分解性研究", 
+                "相対性理論の視覚的アプローチ", "AI生成物の著作権法的課題", "地域おこし協力隊の現状分析", 
+                "音楽療法の可能性", "江戸時代の庶民教育", "スポーツとデータ分析", "心理学から見るマーケティング"
+            ];
+            const themesScience = [
+                "大口川の水質汚染と微生物分布", "モデルロケットの空力特性の最適化", "自律歩行ロボットの障害物回避制御", 
+                "食品添加物の抗酸化作用の比較", "粘菌による迷路解決のシミュレーション", "バイオエタノールの生成効率",
+                "自作望遠鏡による天体観測", "プログラミングによる画像認識"
+            ];
+            const themesGlobal = [
+                "SDGs Goal 4: Quality Education", "Cross-Cultural Communication Styles", 
+                "Environmental Impact of Fast Fashion", "Gender Equality in Japan", "Plastic Free Ocean Project"
+            ];
 
-        function getRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+            function getRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
-        // Data Generator
-        function generateStudents(type) {
-            let count = 0;
-            let list = [];
-            let isGroup = false;
+            // Data Generator
+            function generateStudents(type) {
+                let count = 0;
+                let list = [];
+                let isGroup = false;
 
-            // Define Rules
-            if (type === 'h2') { 
-                count = 5; // 本館: 高2 (5人)
-                list = themesH2; 
-            } else if (type === 'science') { 
-                count = 6; // 1号館: サイエンス (6人)
-                list = themesScience; 
-            } else if (type === 'global') { 
-                count = 4; // ホール: グローバル (Group)
-                list = themesGlobal; 
-                isGroup = true; 
-            } else if (type === 'ceremony') {
-                return [{ 
-                    name: "実行委員会", title: "クロージングセレモニー", 
-                    desc: "2日間の成果を称えるフィナーレ。各部門の優秀賞発表。", 
-                    comment: "感動の瞬間を共に！",
-                    image: "https://placehold.jp/150x150.png?text=Ceremony" 
-                }];
-            }
-
-            const students = [];
-            for (let i = 0; i < count; i++) {
-                if (isGroup) {
-                    students.push({
-                        name: `Group ${String.fromCharCode(65+i)}`, 
-                        title: getRandom(list),
-                        desc: "英語によるポスターセッションと質疑応答。世界を変えるアイデアを提案します。",
-                        comment: "We are waiting for your questions!",
-                        image: `https://placehold.jp/150x150.png?text=Group+${String.fromCharCode(65+i)}`
-                    });
-                } else {
-                    students.push({
-                        name: `${getRandom(lastNames)} ${getRandom(firstNames)}`, 
-                        title: getRandom(list),
-                        desc: type === 'h2' ? "1年間の探究学習の成果をポスター形式で発表します。" : "実験データに基づいた科学的な考察を発表します。",
-                        comment: "ぜひ見に来てください！",
-                        image: `https://placehold.jp/150x150.png?text=Student`
-                    });
+                if (type === 'h2') { 
+                    count = 5; 
+                    list = themesH2; 
+                } else if (type === 'science') { 
+                    count = 6; 
+                    list = themesScience; 
+                } else if (type === 'global') { 
+                    count = 4; 
+                    list = themesGlobal; 
+                    isGroup = true; 
+                } else if (type === 'ceremony') {
+                    return [{ 
+                        name: "実行委員会", title: "クロージングセレモニー", 
+                        desc: "2日間の成果を称えるフィナーレ。各部門の優秀賞発表。", 
+                        comment: "感動の瞬間を共に！",
+                        image: "https://placehold.jp/150x150.png?text=Ceremony" 
+                    }];
                 }
+
+                const students = [];
+                for (let i = 0; i < count; i++) {
+                    if (isGroup) {
+                        students.push({
+                            name: `Group ${String.fromCharCode(65+i)}`, 
+                            title: getRandom(list),
+                            desc: "英語によるポスターセッションと質疑応答。世界を変えるアイデアを提案します。",
+                            comment: "We are waiting for your questions!",
+                            image: `https://placehold.jp/150x150.png?text=Group+${String.fromCharCode(65+i)}`
+                        });
+                    } else {
+                        students.push({
+                            name: `${getRandom(lastNames)} ${getRandom(firstNames)}`, 
+                            title: getRandom(list),
+                            desc: type === 'h2' ? "1年間の探究学習の成果をポスター形式で発表します。" : "実験データに基づいた科学的な考察を発表します。",
+                            comment: "ぜひ見に来てください！",
+                            image: `https://placehold.jp/150x150.png?text=Student`
+                        });
+                    }
+                }
+                return students;
             }
-            return students;
-        }
 
-        // Modal Logic
-        const modal = document.getElementById('room-modal');
-        const closeModal = document.getElementById('close-modal');
-        const listContainer = document.getElementById('student-list-container');
-        const modalTitle = document.getElementById('modal-title');
-        const modalBadge = document.getElementById('modal-badge');
+            // Modal Logic
+            const modal = document.getElementById('room-modal');
+            const closeModal = document.getElementById('close-modal');
+            const listContainer = document.getElementById('student-list-container');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBadge = document.getElementById('modal-badge');
 
-        document.querySelectorAll('.room').forEach(room => {
-            room.addEventListener('click', () => {
-                if (isDragging) return; // Don't open if dragging map
+            rooms.forEach(room => {
+                room.addEventListener('click', () => {
+                    // Check isDragging (need to ensure this variable is accessible or handled)
+                    // Simplified: if map logic isn't active, isDragging might not be defined in this scope if blocked by if(canvas)
+                    // For now, removing isDragging check here since map is hidden anyway
+                    
+                    const type = room.getAttribute('data-type');
+                    const roomName = room.getAttribute('data-room');
+                    if (!type) return;
+                    const students = generateStudents(type);
+                    
+                    // Update Header Info
+                    modalTitle.textContent = `${roomName} 発表者一覧`;
+                    
+                    // Badge Color
+                    modalBadge.className = "px-3 py-1 text-white text-xs font-bold rounded uppercase";
+                    if (type === 'h2') { modalBadge.classList.add('bg-brand-blue'); modalBadge.textContent = "高2探究"; }
+                    else if (type === 'science') { modalBadge.classList.add('bg-gray-600'); modalBadge.textContent = "サイエンス"; }
+                    else if (type === 'global') { modalBadge.classList.add('bg-brand-green'); modalBadge.textContent = "グローバル"; }
+                    else if (type === 'ceremony') { modalBadge.classList.add('bg-brand-red'); modalBadge.textContent = "イベント"; modalTitle.textContent = "イベント詳細"; }
 
-                const type = room.getAttribute('data-type');
-                const roomName = room.getAttribute('data-room');
-                if (!type) return;
-
-                const students = generateStudents(type);
-                
-                // Update Header Info
-                modalTitle.textContent = `${roomName} 発表者一覧`;
-                
-                // Badge Color
-                modalBadge.className = "px-3 py-1 text-white text-xs font-bold rounded uppercase";
-                if (type === 'h2') { modalBadge.classList.add('bg-brand-blue'); modalBadge.textContent = "高2探究"; }
-                else if (type === 'science') { modalBadge.classList.add('bg-gray-600'); modalBadge.textContent = "サイエンス"; }
-                else if (type === 'global') { modalBadge.classList.add('bg-brand-green'); modalBadge.textContent = "グローバル"; }
-                else if (type === 'ceremony') { modalBadge.classList.add('bg-brand-red'); modalBadge.textContent = "イベント"; modalTitle.textContent = "イベント詳細"; }
-
-                // Generate Cards
-                listContainer.innerHTML = students.map(s => `
-                    <div class="student-card">
-                        <img src="${s.image}" alt="${s.name}" class="student-img">
-                        <div class="flex-1 min-w-0">
-                            <h4 class="font-bold text-gray-800 mb-1 line-clamp-2 leading-snug">${s.title}</h4>
-                            <p class="text-xs font-bold text-brand-blue mb-2 flex items-center">
-                                <i class="fa-solid fa-user mr-1"></i> ${s.name}
-                            </p>
-                            <p class="text-sm text-gray-600 mb-2 leading-relaxed text-xs">${s.desc}</p>
-                            <div class="bg-yellow-50 p-2 rounded text-xs text-gray-500 border border-yellow-100 inline-block">
-                                <i class="fa-regular fa-comment-dots text-brand-yellow mr-1"></i> ${s.comment}
+                    // Generate Cards
+                    listContainer.innerHTML = students.map(s => `
+                        <div class="student-card">
+                            <img src="${s.image}" alt="${s.name}" class="student-img">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-gray-800 mb-1 line-clamp-2 leading-snug">${s.title}</h4>
+                                <p class="text-xs font-bold text-brand-blue mb-2 flex items-center">
+                                    <i class="fa-solid fa-user mr-1"></i> ${s.name}
+                                </p>
+                                <p class="text-sm text-gray-600 mb-2 leading-relaxed text-xs">${s.desc}</p>
+                                <div class="bg-yellow-50 p-2 rounded text-xs text-gray-500 border border-yellow-100 inline-block">
+                                    <i class="fa-regular fa-comment-dots text-brand-yellow mr-1"></i> ${s.comment}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `).join('');
+                    `).join('');
 
-                modal.classList.add('open');
-                document.body.style.overflow = 'hidden'; // Lock scroll
+                    modal.classList.add('open');
+                    document.body.style.overflow = 'hidden'; // Lock scroll
+                });
             });
-        });
 
-        // Close Modal
-        const closeFunc = () => {
-            modal.classList.remove('open');
-            document.body.style.overflow = '';
-        };
-        closeModal.addEventListener('click', closeFunc);
-        modal.addEventListener('click', (e) => { if (e.target === modal) closeFunc(); });
+            // Close Modal
+            const closeFunc = () => {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+            };
+            closeModal.addEventListener('click', closeFunc);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeFunc(); });
+        }
     });
 </script>
-
 </body>
 </html>
