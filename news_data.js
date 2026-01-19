@@ -45,20 +45,20 @@ const sharedNewsData = [
     {
         id: 4,
         date: "2026.01.21",
-        category: "recruit",
-        title: "【在校生向け】当日ボランティアスタッフ追加募集",
-        summary: "当日の案内誘導、受付、清掃などを担当するボランティアスタッフを追加募集します。フェスタを裏側から支えてみませんか？",
-        content: `<p>予想以上の来場登録をいただいているため、当日の運営スタッフを追加募集します。</p>
+        category: "info",
+        title: "SNSアカウント公開のお知らせ",
+        summary: "Project Festa関連のSNSアカウントを公開しました。様々なコンテンツをお楽しみいただけます！",
+        content: `<p>各種リンクはこちらからどうぞ‼</p>
                   <ul class="list-disc list-inside mt-2 space-y-1">
-                    <li><strong>募集人数：</strong> 20名</li>
-                    <li><strong>業務内容：</strong> 受付補助、会場誘導、エコステーション管理</li>
-                    <li><strong>応募締切：</strong> 3月5日（木） 17:00まで</li>
+                    <li><strong>X(旧Twitter)：</strong>https://xxxxxxxxxx.com/</li>
+                    <li><strong>Instagram：</strong>https://xxxxxxxxxx.com/</li>
+                    <li><strong>Youtube：</strong>https://xxxxxxxxxx.com/</li>
                   </ul>
-                  <p class="mt-4">生徒会室前のボックスに応募用紙を提出してください。</p>`
+                  <p class="mt-4">ぜひフォローなどもよろしくお願いします。</p>`
     },
     {
         id: 5,
-        date: "2026.02.20",
+        date: "2026.01.21",
         category: "info",
         title: "ホームページ開設のお知らせ",
         summary: "Project Festaのホームページはこちらです！",
