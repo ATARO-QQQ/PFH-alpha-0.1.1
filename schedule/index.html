@@ -244,17 +244,17 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
 
             <!-- 11:10 Break -->
             <div class="time-col">11:10</div>
-            <!-- FIXED: Reduced empty cells from 6 to 5 because Gate is still active -->
+            <!-- FIXED: Added 1 empty cell because Gate ends at 11:10 (Total 6 cells) -->
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
-            <!-- 11:40 Ending Ceremony Starts (11:20 in code) -->
+            <!-- 11:20 Ending Ceremony Starts -->
             <div class="time-col">11:20</div>
-            <!-- FIXED: Changed span 5 to span 4 (40mins), Reduced empty cells from 5 to 4 -->
+            <!-- FIXED: Added 1 empty cell at the end (Total 5 cells including Ceremony) -->
             <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 4;">
               <div class="event-title">エンディングセレモニー</div>
               <div class="event-time">11:20～12:00</div>
             </div>
-            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
+            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">11:30</div>
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
@@ -267,7 +267,6 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
 
             <!-- 12:00 Q&A -->
             <div class="time-col">12:00</div>
-            <!-- FIXED: span 3 -> span 6 to match 12:00-13:00 duration -->
             <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 6;">
               <div class="event-title">質問などの対応</div>
               <div class="event-time">12:00～13:00</div>
@@ -281,7 +280,6 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">12:30</div>
-            <!-- Empty cells must be 5 because event is still running -->
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">12:40</div>
@@ -367,7 +365,8 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
               <div class="event-title">グローバルコース<br>ピッチ発表(前半)</div>
               <div class="event-time">9:00～10:00</div>
             </div>
-            <div class="event-cell bg-gray-50 border-l-4 border-gray-500" style="grid-row: span 15;">
+            <!-- FIXED: Changed span 15 to 13 to match Day 1 (Ends at 11:10) -->
+            <div class="event-cell bg-gray-50 border-l-4 border-gray-500" style="grid-row: span 13;">
               <div class="event-title">入場ゲート開門＆<br>キッチンカー営業</div>
               <div class="event-time">9:00～11:10</div>
             </div>
@@ -413,17 +412,17 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
 
             <!-- 11:10 Break -->
             <div class="time-col">11:10</div>
-            <!-- FIXED: Reduced empty cells from 6 to 5 because Gate is still active -->
-            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
+            <!-- FIXED: Added 1 empty cell because Gate ends at 11:10 (Total 6 cells) -->
+            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
-            <!-- 11:40 Ending Ceremony Starts (11:20 in code) -->
+            <!-- 11:20 Ending Ceremony Starts -->
             <div class="time-col">11:20</div>
-            <!-- FIXED: Changed span 5 to span 4, Reduced empty cells from 5 to 4 -->
+            <!-- FIXED: Added 1 empty cell at the end (Total 5 cells including Ceremony) -->
             <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 4;">
               <div class="event-title">エンディングセレモニー</div>
               <div class="event-time">11:20～12:00</div>
             </div>
-            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
+            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">11:30</div>
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
@@ -436,7 +435,6 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
 
             <!-- 12:00 Q&A -->
             <div class="time-col">12:00</div>
-            <!-- FIXED: span 3 -> span 6 to match 12:00-13:00 duration -->
             <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 6;">
               <div class="event-title">質問などの対応</div>
               <div class="event-time">12:00～13:00</div>
@@ -450,7 +448,6 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">12:30</div>
-            <!-- Empty cells must be 5 because event is still running -->
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">12:40</div>
