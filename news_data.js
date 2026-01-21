@@ -23,11 +23,11 @@ const sharedNewsData = [
         id: 2,
         date: "2026.01.21",
         category: "important",
-        title: "【重要】Project Festa 2026の入場チケットの予約受付を開始しました！",
+        title: "【重要】Project Festa 2026の入場チケットの予約受付を開始します。",
         summary: "チケットはご来場に<strong>必ず必要</strong>となります。お早めのご予約を。",
         content: `<p>保護者の方、外部の方などの、横浜創英中学・高等学校に所属している方以外の皆様は、入場のためにデジタルチケットが必要となります。</p>
-                  <p>公開されたPeatixのサイトを用いてチケットを各自ご用意ください。</p>
-                  <div class="bg-gray-100 p-4 rounded mt-4"><strong>リンク：</strong> https://xxxxxxxxxxxxx.com/</div>`
+                  <p>今後公開予定のPeatixのサイトを用いてチケットを各自ご用意ください。</p>
+                  <div class="bg-gray-100 p-4 rounded mt-4"><strong>リンク：</strong> https://ataro-qqq.github.io/PFH-alpha-0.1.1/preparation/</div>`
     },
     {
         id: 3,
@@ -38,7 +38,7 @@ const sharedNewsData = [
         content: `<p>Project Festa 2026の開催中にキッチンカーがやってきます！</p>
                   <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-gray pl-2">様々な屋台が集結！</h4>
                   <p>中学生の発案で着々と計画を進めていたキッチンカーの誘致が実現しました。<br>
-                  フェスタの開始から終了まで、皆様の知的好奇心だけでなく<strong>おなかも舌も満足</strong>させる企画がてんこ盛りです！<strong>一号館裏へレッツゴー‼</strong></p>
+                  フェスタの開始から終了まで、皆様の知的好奇心だけでなく<strong>おなかも舌も満足</strong>させる企画がてんこ盛りです！<strong>1号館裏へレッツゴー‼</strong></p>
                   <h4 class="font-bold text-lg mt-6 mb-2 border-l-4 border-brand-gray pl-2">出店店舗と時間帯について</h4>
                   <p>出店店舗は<strong>&me…</strong>、<strong>キッチンカーKI KI</strong>、<strong>HIDAMARI -waffle-</strong>、<strong>773crepe</strong>の四つです。そのうち &me… は一日目、 キッチンカーKI KI は二日目のみの営業となります。ご了承ください。</p>`
     },
