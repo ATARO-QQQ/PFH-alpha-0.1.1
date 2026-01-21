@@ -46,13 +46,13 @@ const sharedNewsData = [
         id: 4,
         date: "2026.01.21",
         category: "info",
-        title: "SNSアカウント公開のお知らせ",
-        summary: "Project Festa関連のSNSアカウントを公開しました。様々なコンテンツをお楽しみいただけます！",
-        content: `<p>各種リンクはこちらからどうぞ‼</p>
+        title: "SNSアカウント準備中です…",
+        summary: "Project Festa関連のSNSアカウントの準備を進めております。様々なコンテンツをお楽しみいただけます！",
+        content: `<p>各種リンクは公開後、このニューススレッドにも掲載いたします。いましばらくお待ちください…。</p>
                   <ul class="list-disc list-inside mt-2 space-y-1">
-                    <li><strong>X(旧Twitter)：</strong>https://xxxxxxxxxx.com/</li>
-                    <li><strong>Instagram：</strong>https://xxxxxxxxxx.com/</li>
-                    <li><strong>Youtube：</strong>https://xxxxxxxxxx.com/</li>
+                    <li><strong>X(旧Twitter)：</strong>準備中</li>
+                    <li><strong>Instagram：</strong>準備中</li>
+                    <li><strong>Youtube：</strong>https://youtube.com/live/XSiDKIQYi_I</li>
                   </ul>
                   <p class="mt-4">ぜひフォローなどもよろしくお願いします。</p>`
     },
