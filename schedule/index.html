@@ -18,7 +18,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <!-- Security Headers (CSP) -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self';">
-
 <!-- Fonts: Noto Sans JP -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,16 +47,13 @@ tailwind.config = {
 <style>
 /* ベーススタイル */
 html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit-text-size-adjust: 100%; }
-
 /* 背景パターン */
 .bg-dot-grid { background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px); background-size: 24px 24px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -3; opacity: 0.6; }
 .geo-deco { position: absolute; z-index: -1; pointer-events: none; opacity: 0.6; }
-
 /* Header Transition */
 #main-header { transition: transform 0.3s ease-in-out, background-color 0.3s ease; }
 #main-header.hidden-header { transform: translateY(-100%); }
 #main-header.scrolled { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
-
 /* スケジュール表のスタイル */
 .schedule-grid { display: grid; grid-template-columns: 80px repeat(6, minmax(140px, 1fr)); gap: 1px; background-color: #e5e7eb; border: 1px solid #e5e7eb; }
 .schedule-header { background-color: #f3f4f6; padding: 1rem; text-align: center; font-weight: bold; display: flex; align-items: center; justify-content: center; position: sticky; top: 0; z-index: 10; }
@@ -66,14 +62,11 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
 .event-cell:hover { background-color: #f9fafb; }
 .event-title { font-weight: bold; margin-bottom: 0.1rem; }
 .event-time { font-size: 0.7rem; color: #666; font-weight: 500; }
-
 /* モバイル用スクロールコンテナ */
 .schedule-scroll-container { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
-
 /* モバイルメニュー */
 #mobile-menu { transition: max-height 0.4s ease-in-out, opacity 0.4s ease; max-height: 0; opacity: 0; overflow: hidden; }
 #mobile-menu.open { max-height: 500px; opacity: 1; }
-
 /* アニメーション */
 .reveal-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
 .reveal-up.active { opacity: 1; transform: translateY(0); }
@@ -251,15 +244,17 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
 
             <!-- 11:10 Break -->
             <div class="time-col">11:10</div>
-            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
+            <!-- FIXED: Reduced empty cells from 6 to 5 because Gate is still active -->
+            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
-            <!-- 11:40 Ending Ceremony Starts -->
+            <!-- 11:40 Ending Ceremony Starts (11:20 in code) -->
             <div class="time-col">11:20</div>
-            <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 5;">
+            <!-- FIXED: Changed span 5 to span 4 (40mins), Reduced empty cells from 5 to 4 -->
+            <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 4;">
               <div class="event-title">エンディングセレモニー</div>
               <div class="event-time">11:20～12:00</div>
             </div>
-            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
+            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">11:30</div>
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
@@ -270,9 +265,10 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
             <div class="time-col">11:50</div>
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
-            <!-- 12:30 Q&A -->
+            <!-- 12:00 Q&A -->
             <div class="time-col">12:00</div>
-            <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 3;">
+            <!-- FIXED: span 3 -> span 6 to match 12:00-13:00 duration -->
+            <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 6;">
               <div class="event-title">質問などの対応</div>
               <div class="event-time">12:00～13:00</div>
             </div>
@@ -285,6 +281,7 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">12:30</div>
+            <!-- Empty cells must be 5 because event is still running -->
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">12:40</div>
@@ -416,15 +413,17 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
 
             <!-- 11:10 Break -->
             <div class="time-col">11:10</div>
-            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
+            <!-- FIXED: Reduced empty cells from 6 to 5 because Gate is still active -->
+            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
-            <!-- 11:40 Ending Ceremony Starts -->
+            <!-- 11:40 Ending Ceremony Starts (11:20 in code) -->
             <div class="time-col">11:20</div>
-            <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 5;">
+            <!-- FIXED: Changed span 5 to span 4, Reduced empty cells from 5 to 4 -->
+            <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 4;">
               <div class="event-title">エンディングセレモニー</div>
               <div class="event-time">11:20～12:00</div>
             </div>
-            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
+            <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">11:30</div>
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
@@ -435,9 +434,10 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
             <div class="time-col">11:50</div>
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
-            <!-- 12:30 Q&A -->
+            <!-- 12:00 Q&A -->
             <div class="time-col">12:00</div>
-            <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 3;">
+            <!-- FIXED: span 3 -> span 6 to match 12:00-13:00 duration -->
+            <div class="event-cell bg-blue-50 border-l-4 border-brand-blue" style="grid-row: span 6;">
               <div class="event-title">質問などの対応</div>
               <div class="event-time">12:00～13:00</div>
             </div>
@@ -450,6 +450,7 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">12:30</div>
+            <!-- Empty cells must be 5 because event is still running -->
             <div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div><div class="event-cell"></div>
 
             <div class="time-col">12:40</div>
@@ -521,7 +522,6 @@ html, body { overflow-x: hidden; width: 100%; background-color: #ffffff; -webkit
     </div>
   </div>
 </footer>
-
 <script>
 // Day Toggle Logic
 const btnDay1 = document.getElementById('btn-day1');
